@@ -5,7 +5,7 @@ import { RoomType } from "@/components/RoomTile/RoomTile";
 //Overview of all Rooms Page
 
 export default function Rooms() {
-  //Spiegelt DB wieder, aka welche Räume der User angelegt hat
+  // Dummy array (represents added rooms by the user from the e.g. db/localstorage)
   const rooms = [
     {
       title: "My Kitchen",
@@ -24,12 +24,20 @@ export default function Rooms() {
       type: RoomType.OFFICE,
     },
     {
+      title: "My partners office",
+      type: RoomType.OFFICE,
+    },
+    {
       title: "My Bathroom",
       type: RoomType.BATHROOM,
     },
     {
-      title: "My partners office",
-      type: RoomType.OFFICE,
+      title: "My Hallway",
+      type: RoomType.HALLWAY,
+    },
+    {
+      title: "My Dining Room",
+      type: RoomType.DINING_ROOM,
     },
   ];
 

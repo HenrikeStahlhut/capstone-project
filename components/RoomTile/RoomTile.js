@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-// Alle Möglichkeiten,die ein Raum sein kann - Object Roomtype: hat den Key KITCHEN und value "kitchen", object.freeze: object kann nicht mehr verändert werden
+// Freezed Object which contains all types of rooms (e.g. kitchen) that the user can choose from later on when adding a room
 export const RoomType = Object.freeze({
   KITCHEN: "kitchen",
   LIVING_ROOM: "living_room",
@@ -12,22 +12,31 @@ export const RoomType = Object.freeze({
   OFFICE: "office",
 });
 
-// Styled Components
-
+// Styled Component
 const Title = styled.p`
   font-size: 15px;
+  margin: 10px 0px 0px 0px;
+`;
+
+const ImageContainer = styled.div`
+  overflow: hidden;
+  border-radius: 30px;
+  width: 128px;
+  height: 128px;
 `;
 
 export default function RoomTile({ title, type }) {
   return (
-    <>
-      <Image
-        src={`/images/rooms/${type}.png`}
-        width={128}
-        height={128}
-        alt="Room"
-      />
+    <div>
+      <ImageContainer>
+        <Image
+          src={`/images/rooms/${type}.png`}
+          width={128}
+          height={128}
+          alt={title}
+        />
+      </ImageContainer>
       <Title>{title}</Title>
-    </>
+    </div>
   );
 }
