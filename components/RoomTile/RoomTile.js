@@ -20,7 +20,7 @@ const Title = styled.p`
 
 const ImageContainer = styled.div`
   overflow: hidden;
-  border-radius: 30px;
+  border-radius: 20px;
   width: 128px;
   height: 128px;
 `;
