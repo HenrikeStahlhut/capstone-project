@@ -2,50 +2,53 @@ import Header from "@/components/Header/Header.js";
 import RoomList from "@/components/RoomList/RoomList.js";
 import { RoomType } from "@/components/RoomTile/RoomTile";
 import AddRoomModal from "@/components/AddRoomModal/AddRoomModal";
+import { useState } from "react";
 
 // Dummy array (represents added rooms by the user from the e.g. db/localstorage)
-const rooms = [
+const initialUserRooms = [
   {
-    title: "My Kitchen",
+    title: "Dummy Kitchen",
     type: RoomType.KITCHEN,
   },
   {
-    title: "My Living Room",
+    title: "Dummy Living Room",
     type: RoomType.LIVING_ROOM,
   },
   {
-    title: "My Bedroom",
+    title: "Dummy Bedroom",
     type: RoomType.BEDROOM,
   },
   {
-    title: "My Office",
+    title: "Dummy Office",
     type: RoomType.OFFICE,
   },
   {
-    title: "My partners office",
-    type: RoomType.OFFICE,
-  },
-  {
-    title: "My Bathroom",
+    title: "Dummy Bathroom",
     type: RoomType.BATHROOM,
   },
   {
-    title: "My Hallway",
+    title: "Dummy Hallway",
     type: RoomType.HALLWAY,
   },
   {
-    title: "My Dining Room",
+    title: "Dummy Dining Room",
     type: RoomType.DINING_ROOM,
   },
 ];
 
 //Overview of all Rooms Page
 export default function Homepage() {
+  const [roomsList, setRoomsList] = useState(initialUserRooms);
+
+  const addRoom = (room) => setRoomsList([...roomsList, room]);
+
+  // const removeRoom = (roomIndex) => setRoomsList(roomsList.filter());
+
   return (
     <div>
-      <AddRoomModal rooms={rooms} />
+      <AddRoomModal rooms={roomsList} addRoom={addRoom} />
       <Header>My Rooms</Header>
-      <RoomList rooms={rooms} />
+      <RoomList rooms={roomsList} />
     </div>
   );
 }

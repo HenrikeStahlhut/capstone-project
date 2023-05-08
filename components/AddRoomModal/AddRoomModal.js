@@ -69,7 +69,7 @@ const Label = styled.label`
 `;
 
 // Modal Component
-export default function AddRoomModal({ rooms }) {
+export default function AddRoomModal({ rooms, addRoom }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   // Toggle modal state from true to false
@@ -77,7 +77,14 @@ export default function AddRoomModal({ rooms }) {
     setModalOpen(!modalOpen);
   };
 
-  const addRoom = () => {};
+  const handleAddRoom = (event) => {
+    event.preventDefault();
+    addRoom({
+      title: event.target.name.value,
+      type: event.target.room.value,
+    });
+    toggleModal();
+  };
 
   return (
     <>
@@ -88,23 +95,25 @@ export default function AddRoomModal({ rooms }) {
         <Modal>
           <Overlay onClick={toggleModal}></Overlay>
           <ModalContent>
-            <Headline>Add Room</Headline>
-            <Label htmlFor="name">Name</Label>
-            <NameInput type="text" id="name"></NameInput>
-            <Label htmlFor="room">Choose Room</Label>
-            <RoomMenu id="room">
-              <option disabled selected>
-                Select room type
-              </option>
-              <option>Kitchen</option>
-              <option>Bedroom</option>
-              <option>Living Room</option>
-              <option>Hallway</option>
-              <option>Dining Room</option>
-              <option>Office</option>
-              <option>Bathroom</option>
-            </RoomMenu>
-            <AddButton onClick={toggleModal}>Add!</AddButton>
+            <form onSubmit={handleAddRoom}>
+              <Headline>Add Room</Headline>
+              <Label htmlFor="name">Name</Label>
+              <NameInput type="text" id="name" name="name"></NameInput>
+              <Label htmlFor="room">Choose Room</Label>
+              <RoomMenu id="room" name="room">
+                <option disabled selected>
+                  Select room type
+                </option>
+                <option value="kitchen">Kitchen</option>
+                <option value="bedroom">Bedroom</option>
+                <option value="living_room">Living Room</option>
+                <option value="hallway">Hallway</option>
+                <option value="dining_room">Dining Room</option>
+                <option value="office">Office</option>
+                <option value="bathroom">Bathroom</option>
+              </RoomMenu>
+              <AddButton type="submit">Add!</AddButton>
+            </form>
             <CloseModalBtn onClick={toggleModal}>✕</CloseModalBtn>
           </ModalContent>
         </Modal>
