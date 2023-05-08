@@ -108,7 +108,7 @@ export default function AddRoomModal({ rooms, addRoom }) {
                   Select room type
                 </option>
                 <option value={RoomType.KITCHEN}>Kitchen</option>
-                <option value={RoomType.BATHROOM}>Bedroom</option>
+                <option value={RoomType.BEDROOM}>Bedroom</option>
                 <option value={RoomType.LIVING_ROOM}>Living Room</option>
                 <option value={RoomType.HALLWAY}>Hallway</option>
                 <option value={RoomType.DINING_ROOM}>Dining Room</option>
