@@ -2,8 +2,9 @@ import Header from "@/components/Header/Header.js";
 import RoomList from "@/components/RoomList/RoomList.js";
 import { RoomType } from "@/components/RoomTile/RoomTile";
 
-//Overview of all Rooms Page
+// Add room modal
 
+// Overview of all Rooms Page
 export default function Rooms() {
   // Dummy array (represents added rooms by the user from the e.g. db/localstorage)
   const rooms = [
