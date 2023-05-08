@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { RoomType } from "../RoomTile/RoomTile";
 
 // Styled Components
-
 const OpenBtn = styled.button`
   position: absolute;
   top: 20px;
@@ -21,6 +21,7 @@ const Modal = styled.div`
   bottom: 0;
   position: fixed;
 `;
+
 const Overlay = styled.div`
   background: rgba(49, 49, 49, 0.5);
   width: 100vw;
@@ -49,9 +50,11 @@ const CloseModalBtn = styled.button`
   right: 10px;
   padding: 5px 7px;
 `;
+
 const Headline = styled.h2`
   color: black;
 `;
+
 const NameInput = styled.input`
   margin: 10px;
 `;
@@ -77,6 +80,7 @@ export default function AddRoomModal({ rooms, addRoom }) {
     setModalOpen(!modalOpen);
   };
 
+  // Add room function
   const handleAddRoom = (event) => {
     event.preventDefault();
     addRoom({
@@ -89,7 +93,6 @@ export default function AddRoomModal({ rooms, addRoom }) {
   return (
     <>
       <OpenBtn onClick={toggleModal}>Add Room</OpenBtn>
-
       {/* If modal true, then return modal html, else return nothing*/}
       {modalOpen && (
         <Modal>
@@ -104,13 +107,13 @@ export default function AddRoomModal({ rooms, addRoom }) {
                 <option disabled selected>
                   Select room type
                 </option>
-                <option value="kitchen">Kitchen</option>
-                <option value="bedroom">Bedroom</option>
-                <option value="living_room">Living Room</option>
-                <option value="hallway">Hallway</option>
-                <option value="dining_room">Dining Room</option>
-                <option value="office">Office</option>
-                <option value="bathroom">Bathroom</option>
+                <option value={RoomType.KITCHEN}>Kitchen</option>
+                <option value={RoomType.BATHROOM}>Bedroom</option>
+                <option value={RoomType.LIVING_ROOM}>Living Room</option>
+                <option value={RoomType.HALLWAY}>Hallway</option>
+                <option value={RoomType.DINING_ROOM}>Dining Room</option>
+                <option value={RoomType.OFFICE}>Office</option>
+                <option value={RoomType.BATHROOM}>Bathroom</option>
               </RoomMenu>
               <AddButton type="submit">Add!</AddButton>
             </form>

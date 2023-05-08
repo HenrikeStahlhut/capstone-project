@@ -42,8 +42,6 @@ export default function Homepage() {
 
   const addRoom = (room) => setRoomsList([...roomsList, room]);
 
-  // const removeRoom = (roomIndex) => setRoomsList(roomsList.filter());
-
   return (
     <div>
       <AddRoomModal rooms={roomsList} addRoom={addRoom} />
