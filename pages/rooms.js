@@ -1,6 +1,7 @@
 import Header from "@/components/Header/Header.js";
 import RoomList from "@/components/RoomList/RoomList.js";
 import { RoomType } from "@/components/RoomTile/RoomTile";
+import styled from "styled-components";
 
 // Add room modal
 
@@ -42,9 +43,18 @@ export default function Rooms() {
     },
   ];
 
+  // Styled components
+  const ModalBtn = styled.button`
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+  `;
+
   return (
     <div>
       <Header>My Rooms</Header>
+      <ModalBtn>Open Modal</ModalBtn>
       <RoomList rooms={rooms} />
     </div>
   );
