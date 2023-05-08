@@ -4,7 +4,7 @@ import { RoomType } from "@/components/RoomTile/RoomTile";
 
 //Overview of all Rooms Page
 
-export default function Homepage() {
+export default function Rooms() {
   // Dummy array (represents added rooms by the user from the e.g. db/localstorage)
   const rooms = [
     {
