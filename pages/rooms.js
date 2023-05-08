@@ -44,17 +44,11 @@ export default function Rooms() {
   ];
 
   // Styled components
-  const ModalBtn = styled.button`
-    padding: 10px 20px;
-    display: block;
-    margin: 100px auto 0;
-    font-size: 18px;
-  `;
 
   return (
     <div>
+      <AddRoomModal />
       <Header>My Rooms</Header>
-      <ModalBtn>Open Modal</ModalBtn>
       <RoomList rooms={rooms} />
     </div>
   );

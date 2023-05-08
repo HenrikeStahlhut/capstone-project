@@ -1,6 +1,7 @@
 import Header from "@/components/Header/Header.js";
 import RoomList from "@/components/RoomList/RoomList.js";
 import { RoomType } from "@/components/RoomTile/RoomTile";
+import AddRoomModal from "@/components/AddRoomModal/AddRoomModal";
 
 //Overview of all Rooms Page
 
@@ -43,6 +44,7 @@ export default function Homepage() {
 
   return (
     <div>
+      <AddRoomModal />
       <Header>My Rooms</Header>
       <RoomList rooms={rooms} />
     </div>
