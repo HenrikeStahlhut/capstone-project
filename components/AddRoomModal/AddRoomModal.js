@@ -2,6 +2,16 @@ import { useState } from "react";
 import styled from "styled-components";
 
 // Styled Components
+
+const OpenBtn = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  padding: 5px 7px;
+  border: none;
+  background-color: lightgrey;
+`;
+
 const Modal = styled.div`
   width: 100vw;
   height: 100vh;
@@ -12,7 +22,7 @@ const Modal = styled.div`
   position: fixed;
 `;
 const Overlay = styled.div`
-  background: rgba(49, 49, 49, 0.8);
+  background: rgba(49, 49, 49, 0.5);
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -40,13 +50,26 @@ const CloseModalBtn = styled.button`
   padding: 5px 7px;
 `;
 const Headline = styled.h2`
-  color: red;
+  color: black;
 `;
-const NameInput = styled.input; //How to styled.input?
-const RoomOptions = styled.select; //How to styled.select?
+const NameInput = styled.input`
+  margin: 10px;
+`;
+
+const RoomMenu = styled.select`
+  margin: 10px;
+`;
+
+const AddButton = styled.button`
+  position: realtive;
+`;
+
+const Label = styled.label`
+  font-size: 14px;
+`;
 
 // Modal Component
-export default function AddRoomModal() {
+export default function AddRoomModal({ rooms }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   // Toggle modal state from true to false
@@ -54,25 +77,35 @@ export default function AddRoomModal() {
     setModalOpen(!modalOpen);
   };
 
+  const addRoom = () => {};
+
   return (
     <>
-      <button onClick={toggleModal}>Open Modal in Component</button>
+      <OpenBtn onClick={toggleModal}>Add Room</OpenBtn>
 
       {/* If modal true, then return modal html, else return nothing*/}
       {modalOpen && (
         <Modal>
           <Overlay onClick={toggleModal}></Overlay>
           <ModalContent>
-            <Headline>Hello Modal</Headline>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-              perferendis suscipit officia recusandae, eveniet quaerat assumenda
-              id fugit, dignissimos maxime non natus placeat illo iusto!
-              Sapiente dolorum id maiores dolores? Illum pariatur possimus
-              quaerat ipsum quos molestiae rem aspernatur dicta tenetur. Sunt
-              placeat tempora vitae enim incidunt porro fuga ea.
-            </p>
-            <CloseModalBtn onClick={toggleModal}>CLOSE</CloseModalBtn>
+            <Headline>Add Room</Headline>
+            <Label htmlFor="name">Name</Label>
+            <NameInput type="text" id="name"></NameInput>
+            <Label htmlFor="room">Choose Room</Label>
+            <RoomMenu id="room">
+              <option disabled selected>
+                Select room type
+              </option>
+              <option>Kitchen</option>
+              <option>Bedroom</option>
+              <option>Living Room</option>
+              <option>Hallway</option>
+              <option>Dining Room</option>
+              <option>Office</option>
+              <option>Bathroom</option>
+            </RoomMenu>
+            <AddButton onClick={toggleModal}>Add!</AddButton>
+            <CloseModalBtn onClick={toggleModal}>✕</CloseModalBtn>
           </ModalContent>
         </Modal>
       )}
