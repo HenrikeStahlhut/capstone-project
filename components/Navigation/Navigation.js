@@ -1,6 +1,11 @@
 import styled from "styled-components";
-import Image from "next/image";
-import { IoAddCircleSharp } from "react-icons/io5";
+import Link from "next/link";
+import {
+  IoAddCircleSharp,
+  IoHomeSharp,
+  IoCalendarClear,
+} from "react-icons/io5";
+import StyledLink from "../StyledLink/StyledLink";
 
 // Styled components
 
@@ -24,7 +29,7 @@ const Nav = styled.ul`
 const ListItemContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0px 10px;
+  margin: 0px 15px;
 `;
 
 const ListItem = styled.li`
@@ -34,28 +39,32 @@ const ListItem = styled.li`
   text-align: center;
 `;
 
-// const ListIcon = styled.svg`
-//   height: 30px;
-//   width: 30px;
-// `;
-
 export default function Navigation() {
   return (
     <>
       <NavContainer>
         <Nav>
+          {/* Home */}
           <ListItemContainer>
-            <IoAddCircleSharp size="30px" />
-            <ListItem>Home</ListItem>
+            <StyledLink href="/" scroll={true}>
+              <IoHomeSharp size="30px" />
+              <ListItem>Home</ListItem>
+            </StyledLink>
           </ListItemContainer>
+          {/* Add */}
           <ListItemContainer>
-            <IoAddCircleSharp size="30px" />
-            <ListItem>Add</ListItem>
+            <StyledLink href="/add-plants" scroll={true}>
+              <IoAddCircleSharp size="30px" />
+              <ListItem>Add</ListItem>
+            </StyledLink>
           </ListItemContainer>
-          <ListItemContainer>
-            <IoAddCircleSharp size="30px" />
-            <ListItem>To-Do</ListItem>
-          </ListItemContainer>
+          {/* To-Do */}
+          <StyledLink href="/">
+            <ListItemContainer>
+              <IoCalendarClear size="30px" scroll={true} />
+              <ListItem>To-Do</ListItem>
+            </ListItemContainer>
+          </StyledLink>
         </Nav>
       </NavContainer>
     </>
