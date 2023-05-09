@@ -15,10 +15,6 @@ const OpenBtn = styled.button`
 const Modal = styled.div`
   width: 100vw;
   height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   position: fixed;
 `;
 
@@ -26,10 +22,6 @@ const Overlay = styled.div`
   background: rgba(49, 49, 49, 0.5);
   width: 100vw;
   height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   position: fixed;
 `;
 const ModalContent = styled.div`
@@ -52,7 +44,7 @@ const CloseModalBtn = styled.button`
 `;
 
 const Headline = styled.h2`
-  color: black;
+  font-size: 20px;
 `;
 
 const NameInput = styled.input`
@@ -64,7 +56,7 @@ const RoomMenu = styled.select`
 `;
 
 const AddButton = styled.button`
-  position: realtive;
+  position: relative;
 `;
 
 const Label = styled.label`
@@ -101,7 +93,7 @@ export default function AddRoomModal({ rooms, addRoom }) {
             <form onSubmit={handleAddRoom}>
               <Headline>Add Room</Headline>
               <Label htmlFor="name">Name</Label>
-              <NameInput type="text" id="name" name="name"></NameInput>
+              <NameInput type="text" id="name" name="name" required></NameInput>
               <Label htmlFor="room">Choose Room</Label>
               <RoomMenu id="room" name="room">
                 <option disabled selected>
