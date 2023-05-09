@@ -1,5 +1,5 @@
-import RoomTile, { RoomType } from "@/components/RoomTile/RoomTile.js";
 import styled from "styled-components";
+import RoomTile, { RoomType } from "@/components/RoomTile/RoomTile.js";
 
 // Styled Component
 const GridContainer = styled.div`
