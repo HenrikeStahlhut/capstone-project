@@ -1,6 +1,6 @@
 import { useState } from "react";
-import styled from "styled-components";
 import { RoomType } from "../RoomTile/RoomTile";
+import styled from "styled-components";
 
 // Styled Components
 const OpenBtn = styled.button`
@@ -95,8 +95,8 @@ export default function AddRoomModal({ rooms, addRoom }) {
               <Label htmlFor="name">Name</Label>
               <NameInput type="text" id="name" name="name" required></NameInput>
               <Label htmlFor="room">Choose Room</Label>
-              <RoomMenu id="room" name="room">
-                <option disabled selected>
+              <RoomMenu id="room" name="room" required="required">
+                <option value={RoomType.INVALID} disabled selected>
                   Select room type
                 </option>
                 <option value={RoomType.KITCHEN}>Kitchen</option>

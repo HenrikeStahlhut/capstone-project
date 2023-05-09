@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // Freezed Object which contains all types of rooms (e.g. kitchen) that the user can choose from later on when adding a room
 export const RoomType = Object.freeze({
+  INVALID: "invalid",
   KITCHEN: "kitchen",
   LIVING_ROOM: "living_room",
   BEDROOM: "bedroom",
