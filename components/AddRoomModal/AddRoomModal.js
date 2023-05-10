@@ -10,6 +10,7 @@ const OpenBtn = styled.button`
   padding: 5px 7px;
   border: none;
   background-color: transparent;
+  color: var(--highlight-green);
 `;
 
 const Modal = styled.div`
@@ -19,10 +20,12 @@ const Modal = styled.div`
 `;
 
 const Overlay = styled.div`
-  background: rgba(49, 49, 49, 0.5);
+  background: rgba(114, 122, 67, 0.5);
+  top: 0px;
   width: 100vw;
   height: 100vh;
   position: fixed;
+  backdrop-filter: blur(1px);
 `;
 const ModalContent = styled.div`
   position: absolute;

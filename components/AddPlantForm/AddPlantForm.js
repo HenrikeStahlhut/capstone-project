@@ -16,14 +16,26 @@ const StyledLabel = styled.label`
   margin-bottom: 10px;
 `;
 
+const StyledInput = styled.input`
+  border: none;
+  border-radius: 15px;
+  padding: 7px 15px;
+`;
+
+const StyledSelect = styled.select`
+  border: none;
+  border-radius: 15px;
+  padding: 7px 15px;
+`;
+
 export default function AddPlantsForm() {
   return (
     <>
       <StyledForm>
         <StyledLabel htmlFor="plant-name">Give your plant a name!</StyledLabel>
-        <input type="text" id="plant-name" required placeholder="Name" />
-        <StyledLabel htmlFor="room">Which room is your plant in</StyledLabel>
-        <select id="room" name="room" required="required">
+        <StyledInput type="text" id="plant-name" required placeholder="Name" />
+        <StyledLabel htmlFor="room">Which room is your plant in?</StyledLabel>
+        <StyledSelect id="room" name="room" required="required">
           <option value={RoomType.INVALID} disabled selected>
             Select room
           </option>
@@ -34,8 +46,8 @@ export default function AddPlantsForm() {
           <option value={RoomType.DINING_ROOM}>Dining Room</option>
           <option value={RoomType.OFFICE}>Office</option>
           <option value={RoomType.BATHROOM}>Bathroom</option>
-        </select>
-        <Button type="submit" href="/add-own-plant">
+        </StyledSelect>
+        <Button type="submit" href="/add-plants">
           Add to my garden!
         </Button>
       </StyledForm>

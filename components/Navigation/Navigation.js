@@ -11,11 +11,11 @@ import StyledLink from "../StyledLink/StyledLink";
 
 const NavContainer = styled.nav`
   position: fixed;
-  width: 15em;
-  background-color: #c2d9b4;
-  border-radius: 30px;
-  bottom: 2em;
-  left: 4.5em;
+  width: 100vw;
+  background-color: var(--white);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  bottom: 0px;
 `;
 
 const Nav = styled.ul`
@@ -23,7 +23,7 @@ const Nav = styled.ul`
   padding: 0;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
 `;
 
 const ListItemContainer = styled.div`
@@ -44,13 +44,13 @@ export default function Navigation() {
     <>
       <NavContainer>
         <Nav>
-          {/* Home */}
+          {/* Home
           <ListItemContainer>
             <StyledLink href="/" scroll={true}>
               <IoHomeSharp size="30px" />
               <ListItem>Home</ListItem>
             </StyledLink>
-          </ListItemContainer>
+          </ListItemContainer> */}
           {/* Add */}
           <ListItemContainer>
             <StyledLink href="/add-plants" scroll={true}>
@@ -58,13 +58,13 @@ export default function Navigation() {
               <ListItem>Add</ListItem>
             </StyledLink>
           </ListItemContainer>
-          {/* To-Do */}
+          {/* To-Do
           <StyledLink href="/">
             <ListItemContainer>
               <IoCalendarClear size="30px" scroll={true} />
               <ListItem>To-Do</ListItem>
             </ListItemContainer>
-          </StyledLink>
+          </StyledLink> */}
         </Nav>
       </NavContainer>
     </>

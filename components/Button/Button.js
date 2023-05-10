@@ -6,7 +6,7 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 20px;
   padding: 7px;
-  background-color: #9fa675;
+  background-color: var(--dark-green);
   margin-top: 20px;
 `;
 
