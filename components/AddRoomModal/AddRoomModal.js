@@ -9,7 +9,7 @@ const OpenBtn = styled.button`
   right: 50px;
   padding: 5px 7px;
   border: none;
-  background-color: lightgrey;
+  background-color: transparent;
 `;
 
 const Modal = styled.div`

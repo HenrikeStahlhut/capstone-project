@@ -15,7 +15,7 @@ const NavContainer = styled.nav`
   background-color: #c2d9b4;
   border-radius: 30px;
   bottom: 2em;
-  left: 5em;
+  left: 4.5em;
 `;
 
 const Nav = styled.ul`
