@@ -36,7 +36,7 @@ export default function AddPlantsForm() {
           <option value={RoomType.BATHROOM}>Bathroom</option>
         </select>
         <Button type="submit" href="/add-own-plant">
-          Add Plant
+          Add to my garden!
         </Button>
       </StyledForm>
     </>
