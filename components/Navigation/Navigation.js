@@ -44,13 +44,13 @@ export default function Navigation() {
     <>
       <NavContainer>
         <Nav>
-          {/* Home
+          {/* Home */}
           <ListItemContainer>
             <StyledLink href="/" scroll={true}>
               <IoHomeSharp size="30px" />
               <ListItem>Home</ListItem>
             </StyledLink>
-          </ListItemContainer> */}
+          </ListItemContainer>
           {/* Add */}
           <ListItemContainer>
             <StyledLink href="/add-plants" scroll={true}>
@@ -58,13 +58,13 @@ export default function Navigation() {
               <ListItem>Add</ListItem>
             </StyledLink>
           </ListItemContainer>
-          {/* To-Do
+          {/* tod */}
           <StyledLink href="/">
             <ListItemContainer>
               <IoCalendarClear size="30px" scroll={true} />
               <ListItem>To-Do</ListItem>
             </ListItemContainer>
-          </StyledLink> */}
+          </StyledLink>
         </Nav>
       </NavContainer>
     </>

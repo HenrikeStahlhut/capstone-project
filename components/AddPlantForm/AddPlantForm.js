@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { RoomType } from "@/components/RoomTile/RoomTile";
 import Button from "@/components/Button/Button";
 
-// Styled Components
+//Styled Components
 
 const StyledForm = styled.form`
   display: flex;
@@ -28,13 +28,13 @@ const StyledSelect = styled.select`
   padding: 7px 15px;
 `;
 
-export default function AddPlantsForm() {
+export default function AddPlantForm() {
   return (
     <>
       <StyledForm>
         <StyledLabel htmlFor="plant-name">Give your plant a name!</StyledLabel>
         <StyledInput type="text" id="plant-name" required placeholder="Name" />
-        <StyledLabel htmlFor="room">Which room is your plant in?</StyledLabel>
+        <StyledLabel htmlFor="room">Choose a room for your plant</StyledLabel>
         <StyledSelect id="room" name="room" required="required">
           <option value={RoomType.INVALID} disabled selected>
             Select room
@@ -46,6 +46,7 @@ export default function AddPlantsForm() {
           <option value={RoomType.DINING_ROOM}>Dining Room</option>
           <option value={RoomType.OFFICE}>Office</option>
           <option value={RoomType.BATHROOM}>Bathroom</option>
+          {/* Map over Roomslist  */}
         </StyledSelect>
         <Button type="submit" href="/add-plants">
           Add to my garden!
