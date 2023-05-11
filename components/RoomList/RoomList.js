@@ -7,7 +7,7 @@ const GridContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   gap: 20px;
-  margin: 0px 40px;
+  margin: 0px 40px 100px 40px;
 `;
 
 // List of Rooms (mapped over dummy array which represents user rooms from e.g. db/localstroage )

@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header.js";
 import RoomList from "@/components/RoomList/RoomList.js";
 import AddRoomModal from "@/components/AddRoomModal/AddRoomModal.js";
 import { RoomType } from "@/components/RoomTile/RoomTile";
+import Navigation from "@/components/Navigation/Navigation";
 
 // Dummy array (represents added rooms by the user from the e.g. db/localstorage)
 const initialUserRooms = [
@@ -47,6 +48,7 @@ export default function Homepage() {
       <AddRoomModal rooms={roomsList} addRoom={addRoom} />
       <Header>My Rooms</Header>
       <RoomList rooms={roomsList} />
+      <Navigation />
     </div>
   );
 }
