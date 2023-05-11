@@ -13,9 +13,7 @@ const StyledButton = styled.button`
 export default function Button({ children, href }) {
   return (
     <>
-      <StyledButton>
-        <StyledLink href={href}>{children}</StyledLink>
-      </StyledButton>
+      <StyledButton>{children}</StyledButton>
     </>
   );
 }
