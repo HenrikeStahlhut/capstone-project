@@ -1,4 +1,5 @@
 import { useState } from "react";
+I;
 import Header from "@/components/Header/Header.js";
 import RoomList from "@/components/RoomList/RoomList.js";
 import AddRoomModal from "@/components/AddRoomModal/AddRoomModal.js";
@@ -37,7 +38,7 @@ const initialUserRooms = [
   },
 ];
 
-//Overview of all Rooms Page
+// Overview of all Rooms Page (atm still homepage)
 export default function Homepage() {
   const [roomsList, setRoomsList] = useState(initialUserRooms);
 

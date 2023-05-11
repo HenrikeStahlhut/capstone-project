@@ -5,7 +5,7 @@ const StyledHeadline = styled.h2`
   margin: 20px 50px;
 `;
 
-//Header Component for all Headers
+// Header component for all headers
 export default function Header({ children }) {
   return (
     <>

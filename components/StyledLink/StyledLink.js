@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
+// Styled Component
 const StyledLinkComponent = styled(Link)`
   color: black;
   text-decoration: none;

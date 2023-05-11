@@ -2,6 +2,7 @@ import StyledLink from "@/components/StyledLink/StyledLink";
 import styled from "styled-components";
 import { IoArrowBackOutline } from "react-icons/io5";
 
+// Styled Component
 const StyledBackButton = styled.button`
   border: none;
   background-color: transparent;

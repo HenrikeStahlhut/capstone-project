@@ -8,6 +8,7 @@ import {
 } from "../AddPlantForm/AddPlantForm.Styled";
 import Button from "@/components/Button/Button";
 
+//TODO not list of RoomTypes --> user rooms need to be displayed, map over initialUserRooms[] in select
 export default function AddPlantForm() {
   return (
     <>
