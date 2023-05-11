@@ -5,7 +5,7 @@ import {
   StyledLabel,
   StyledInput,
   StyledSelect,
-} from "@/AddPlantForm.Styled";
+} from "../AddPlantForm/AddPlantForm.Styled";
 import Button from "@/components/Button/Button";
 
 export default function AddPlantForm() {

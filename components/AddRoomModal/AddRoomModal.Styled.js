@@ -35,30 +35,28 @@ export const StyledModalContent = styled.div`
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
+  border-radius: 15px;
 `;
 export const StyledCloseModalBtn = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 5px 7px;
+  padding: 6px 8px;
+  border: none;
+  background-color: var(--dark-green);
+  border-radius: 50%;
+  color: var(--white);
 `;
 
 export const StyledModalHeadline = styled.h2`
   font-size: 20px;
 `;
 
-export const StyledNameInput = styled.input`
-  margin: 10px;
-`;
-
-export const StyledRoomMenu = styled.select`
-  margin: 10px;
-`;
-
 export const StyledAddButton = styled.button`
-  position: relative;
-`;
-
-export const StyledLabel = styled.label`
-  font-size: 14px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 7px;
+  background-color: var(--dark-green);
+  margin-top: 20px;
 `;
