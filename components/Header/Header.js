@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 // Styled Component
-const Headline = styled.h2`
+const StyledHeadline = styled.h2`
   margin: 20px 50px;
 `;
 
-//Header Component for all Headers
+// Header component for all headers
 export default function Header({ children }) {
   return (
     <>
-      <Headline>{children}</Headline>
+      <StyledHeadline>{children}</StyledHeadline>
     </>
   );
 }

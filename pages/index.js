@@ -37,7 +37,7 @@ const initialUserRooms = [
   },
 ];
 
-//Overview of all Rooms Page
+// Overview of all Rooms Page (atm still homepage)
 export default function Homepage() {
   const [roomsList, setRoomsList] = useState(initialUserRooms);
 

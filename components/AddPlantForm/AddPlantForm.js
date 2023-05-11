@@ -1,33 +1,14 @@
 import styled from "styled-components";
 import { RoomType } from "@/components/RoomTile/RoomTile";
+import {
+  StyledForm,
+  StyledLabel,
+  StyledInput,
+  StyledSelect,
+} from "../AddPlantForm/AddPlantForm.Styled";
 import Button from "@/components/Button/Button";
 
-//Styled Components
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 15em;
-  margin: 0 auto;
-`;
-
-const StyledLabel = styled.label`
-  margin-top: 20px;
-  margin-bottom: 10px;
-`;
-
-const StyledInput = styled.input`
-  border: none;
-  border-radius: 15px;
-  padding: 7px 15px;
-`;
-
-const StyledSelect = styled.select`
-  border: none;
-  border-radius: 15px;
-  padding: 7px 15px;
-`;
-
+//TODO not list of RoomTypes --> user rooms need to be displayed, map over initialUserRooms[] in select
 export default function AddPlantForm() {
   return (
     <>

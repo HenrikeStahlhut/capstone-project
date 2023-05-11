@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header";
 import BackButton from "@/components/BackButton/BackButton";
 import Navigation from "@/components/Navigation/Navigation";
 import Button from "@/components/Button/Button";
+import StyledLink from "@/components/StyledLink/StyledLink";
 
 const Container = styled.div`
   display: flex;
@@ -15,7 +16,11 @@ export default function AddPlants() {
       <BackButton href="/" />
       <Header>Add Plant</Header>
       <Container>
-        <Button href="/add-own-plant">I want to add my own Plant!</Button>
+        <Button>
+          <StyledLink href="/add-own-plant">
+            I want to add my own Plant!
+          </StyledLink>
+        </Button>
       </Container>
       <Navigation />
     </>

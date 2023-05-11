@@ -1,6 +1,7 @@
 import StyledLink from "../StyledLink/StyledLink";
 import styled from "styled-components";
 
+// Styled Component
 const StyledButton = styled.button`
   color: white;
   border: none;
@@ -10,12 +11,11 @@ const StyledButton = styled.button`
   margin-top: 20px;
 `;
 
+// Button components for all onClick buttons on page
 export default function Button({ children, href }) {
   return (
     <>
-      <StyledButton>
-        <StyledLink href={href}>{children}</StyledLink>
-      </StyledButton>
+      <StyledButton>{children}</StyledButton>
     </>
   );
 }
