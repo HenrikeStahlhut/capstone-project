@@ -1,70 +1,19 @@
 import { useState } from "react";
 import { RoomType } from "../RoomTile/RoomTile";
-import styled from "styled-components";
-
-// Styled Components
-const OpenBtn = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 50px;
-  padding: 5px 7px;
-  border: none;
-  background-color: transparent;
-  color: var(--highlight-green);
-`;
-
-const Modal = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-`;
-
-const Overlay = styled.div`
-  background: rgba(114, 122, 67, 0.5);
-  top: 0px;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  backdrop-filter: blur(1px);
-`;
-const ModalContent = styled.div`
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  line-height: 1.4;
-  background: #f1f1f1;
-  padding: 14px 28px;
-  border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
-`;
-const CloseModalBtn = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 7px;
-`;
-
-const Headline = styled.h2`
-  font-size: 20px;
-`;
-
-const NameInput = styled.input`
-  margin: 10px;
-`;
-
-const RoomMenu = styled.select`
-  margin: 10px;
-`;
-
-const AddButton = styled.button`
-  position: relative;
-`;
-
-const Label = styled.label`
-  font-size: 14px;
-`;
+import {
+  StyledOpenBtn,
+  StyledModal,
+  StyledModalContent,
+  StyledCloseModalBtn,
+  StyledModalHeadline,
+  StyledAddButton,
+  StyledOverlay,
+} from "@/components/AddRoomModal/AddRoomModal.Styled";
+import {
+  StyledInput,
+  StyledSelect,
+  StyledLabel,
+} from "../AddPlantForm/AddPlantForm.Styled";
 
 // Modal Component
 export default function AddRoomModal({ rooms, addRoom }) {
@@ -87,18 +36,23 @@ export default function AddRoomModal({ rooms, addRoom }) {
 
   return (
     <>
-      <OpenBtn onClick={toggleModal}>Add Room</OpenBtn>
+      <StyledOpenBtn onClick={toggleModal}>Add Room</StyledOpenBtn>
       {/* If modal true, then return modal html, else return nothing*/}
       {modalOpen && (
-        <Modal>
-          <Overlay onClick={toggleModal}></Overlay>
-          <ModalContent>
+        <StyledModal>
+          <StyledOverlay onClick={toggleModal}></StyledOverlay>
+          <StyledModalContent>
             <form onSubmit={handleAddRoom}>
-              <Headline>Add Room</Headline>
-              <Label htmlFor="name">Name</Label>
-              <NameInput type="text" id="name" name="name" required></NameInput>
-              <Label htmlFor="room">Choose Room</Label>
-              <RoomMenu id="room" name="room" required="required">
+              <StyledModalHeadline>Add Room</StyledModalHeadline>
+              <StyledLabel htmlFor="name">Name</StyledLabel>
+              <StyledInput
+                type="text"
+                id="name"
+                name="name"
+                required
+              ></StyledInput>
+              <StyledLabel htmlFor="room">Choose Room</StyledLabel>
+              <StyledSelect id="room" name="room" required="required">
                 <option value={RoomType.INVALID} disabled selected>
                   Select room type
                 </option>
@@ -109,12 +63,12 @@ export default function AddRoomModal({ rooms, addRoom }) {
                 <option value={RoomType.DINING_ROOM}>Dining Room</option>
                 <option value={RoomType.OFFICE}>Office</option>
                 <option value={RoomType.BATHROOM}>Bathroom</option>
-              </RoomMenu>
-              <AddButton type="submit">Add!</AddButton>
+              </StyledSelect>
+              <StyledAddButton type="submit">Add!</StyledAddButton>
             </form>
-            <CloseModalBtn onClick={toggleModal}>✕</CloseModalBtn>
-          </ModalContent>
-        </Modal>
+            <StyledCloseModalBtn onClick={toggleModal}>✕</StyledCloseModalBtn>
+          </StyledModalContent>
+        </StyledModal>
       )}
     </>
   );
