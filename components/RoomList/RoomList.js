@@ -1,5 +1,7 @@
+import RoomTile from "@/components/RoomTile/RoomTile.js";
+import { fetcher } from "@/utils/fetcher";
 import styled from "styled-components";
-import RoomTile, { RoomType } from "@/components/RoomTile/RoomTile.js";
+import useSWR from "swr";
 
 // Styled Component
 const GridContainer = styled.div`
@@ -11,7 +13,21 @@ const GridContainer = styled.div`
 `;
 
 // List of Rooms (mapped over dummy array which represents user rooms from e.g. db/localstroage )
-export default function RoomList({ rooms }) {
+// export default function RoomList({ rooms }) {
+export default function RoomList() {
+  const { data: rooms, error, isLoading } = useSWR("/api/rooms", fetcher);
+
+  // TODO: style
+  if (error) {
+    return <div>failed to load</div>;
+  }
+
+  // TODO: style
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+
+  // TODO: empty state
   return (
     <>
       <GridContainer>

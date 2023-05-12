@@ -7,9 +7,12 @@ import {
   StyledSelect,
 } from "../AddPlantForm/AddPlantForm.Styled";
 import Button from "@/components/Button/Button";
+import { getRooms } from "@/utils/storage";
 
 //TODO not list of RoomTypes --> user rooms need to be displayed, map over initialUserRooms[] in select
 export default function AddPlantForm() {
+  const roomsList = getRooms();
+
   return (
     <>
       <StyledForm>
@@ -17,7 +20,12 @@ export default function AddPlantForm() {
         <StyledInput type="text" id="plant-name" required placeholder="Name" />
         <StyledLabel htmlFor="room">Choose a room for your plant</StyledLabel>
         <StyledSelect id="room" name="room" required="required">
-          <option value={RoomType.INVALID} disabled selected>
+          {roomsList.map((room, index) => (
+            <option key={index} value={index}>
+              {room.title}
+            </option>
+          ))}
+          {/* <option value={RoomType.INVALID} disabled selected>
             Select room
           </option>
           <option value={RoomType.KITCHEN}>Kitchen</option>
@@ -26,7 +34,7 @@ export default function AddPlantForm() {
           <option value={RoomType.HALLWAY}>Hallway</option>
           <option value={RoomType.DINING_ROOM}>Dining Room</option>
           <option value={RoomType.OFFICE}>Office</option>
-          <option value={RoomType.BATHROOM}>Bathroom</option>
+          <option value={RoomType.BATHROOM}>Bathroom</option> */}
           {/* Map over Roomslist  */}
         </StyledSelect>
         <Button type="submit" href="/add-plants">

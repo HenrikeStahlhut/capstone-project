@@ -1,24 +1,30 @@
-import { useState } from "react";
-import { RoomType } from "../RoomTile/RoomTile";
 import {
-  StyledOpenBtn,
+  StyledAddButton,
+  StyledCloseModalBtn,
   StyledModal,
   StyledModalContent,
-  StyledCloseModalBtn,
   StyledModalHeadline,
-  StyledAddButton,
+  StyledOpenBtn,
   StyledOverlay,
 } from "@/components/AddRoomModal/AddRoomModal.Styled";
+import { useState } from "react";
+import { useSWRConfig } from "swr";
 import {
-  StyledInput,
-  StyledSelect,
-  StyledLabel,
   StyledForm,
+  StyledInput,
+  StyledLabel,
+  StyledSelect,
 } from "../AddPlantForm/AddPlantForm.Styled";
+import { RoomType } from "../RoomTile/RoomTile";
 
 // Modal Component
-export default function AddRoomModal({ rooms, addRoom }) {
+export default function AddRoomModal() {
+  const { mutate } = useSWRConfig();
+
   const [modalOpen, setModalOpen] = useState(false);
+  const [title, setTitle] = useState("");
+  const [type, setType] = useState(undefined);
+  const [error, setError] = useState(null);
 
   // Toggle modal state from true to false
   const toggleModal = () => {
@@ -26,11 +32,20 @@ export default function AddRoomModal({ rooms, addRoom }) {
   };
 
   // Add room function
-  const handleAddRoom = (event) => {
-    event.preventDefault();
-    addRoom({
-      title: event.target.name.value,
-      type: event.target.room.value,
+  const handleAddRoom = () => {
+    if (!title || !type) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    fetch("/api/rooms", {
+      method: "POST",
+      body: JSON.stringify({
+        title,
+        type,
+      }),
+    }).then(() => {
+      mutate("/api/rooms");
     });
     toggleModal();
   };
@@ -44,30 +59,40 @@ export default function AddRoomModal({ rooms, addRoom }) {
           <StyledOverlay onClick={toggleModal}></StyledOverlay>
           <StyledForm>
             <StyledModalContent>
-              <form onSubmit={handleAddRoom}>
-                <StyledModalHeadline>Add Room</StyledModalHeadline>
-                <StyledLabel htmlFor="name">Name</StyledLabel>
-                <StyledInput
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                ></StyledInput>
-                <StyledLabel htmlFor="room">Choose Room</StyledLabel>
-                <StyledSelect id="room" name="room" required="required">
-                  <option value={RoomType.INVALID} disabled selected>
-                    Select room type
-                  </option>
-                  <option value={RoomType.KITCHEN}>Kitchen</option>
-                  <option value={RoomType.BEDROOM}>Bedroom</option>
-                  <option value={RoomType.LIVING_ROOM}>Living Room</option>
-                  <option value={RoomType.HALLWAY}>Hallway</option>
-                  <option value={RoomType.DINING_ROOM}>Dining Room</option>
-                  <option value={RoomType.OFFICE}>Office</option>
-                  <option value={RoomType.BATHROOM}>Bathroom</option>
-                </StyledSelect>
-                <StyledAddButton type="submit">Add!</StyledAddButton>
-              </form>
+              <StyledModalHeadline>Add Room</StyledModalHeadline>
+              {error && <p>{error}</p>}
+              <StyledLabel htmlFor="name">Name</StyledLabel>
+              <StyledInput
+                type="text"
+                id="name"
+                name="name"
+                required
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              ></StyledInput>
+              <StyledLabel htmlFor="room">Choose Room</StyledLabel>
+              <StyledSelect
+                id="room"
+                name="room"
+                required="required"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+              >
+                <option value={RoomType.INVALID} disabled selected>
+                  Select room type
+                </option>
+                <option value={RoomType.KITCHEN}>Kitchen</option>
+                <option value={RoomType.BEDROOM}>Bedroom</option>
+                <option value={RoomType.LIVING_ROOM}>Living Room</option>
+                <option value={RoomType.HALLWAY}>Hallway</option>
+                <option value={RoomType.DINING_ROOM}>Dining Room</option>
+                <option value={RoomType.OFFICE}>Office</option>
+                <option value={RoomType.BATHROOM}>Bathroom</option>
+              </StyledSelect>
+              <StyledAddButton type="submit" onClick={handleAddRoom}>
+                Add!
+              </StyledAddButton>
+
               <StyledCloseModalBtn onClick={toggleModal}>✕</StyledCloseModalBtn>
             </StyledModalContent>
           </StyledForm>

@@ -3,14 +3,14 @@ import { StyledTileTitle, StyledImageContainer } from "./RoomTile.Styled";
 
 // Freezed Object which contains all types of rooms (e.g. kitchen) that the user can choose from later on when adding a room
 export const RoomType = Object.freeze({
-  INVALID: "invalid",
-  KITCHEN: "kitchen",
-  LIVING_ROOM: "living_room",
-  BEDROOM: "bedroom",
-  BATHROOM: "bathroom",
-  DINING_ROOM: "dining_room",
-  HALLWAY: "hallway",
-  OFFICE: "office",
+  INVALID: "INVALID",
+  KITCHEN: "KITCHEN",
+  LIVING_ROOM: "LIVING_ROOM",
+  BEDROOM: "BEDROOM",
+  BATHROOM: "BATHROOM",
+  DINING_ROOM: "DINING_ROOM",
+  HALLWAY: "HALLWAY",
+  OFFICE: "OFFICE",
 });
 
 export default function RoomTile({ title, type }) {
