@@ -12,19 +12,44 @@ const GridContainer = styled.div`
   margin: 0px 40px 100px 40px;
 `;
 
-// List of Rooms (mapped over dummy array which represents user rooms from e.g. db/localstroage )
-// export default function RoomList({ rooms }) {
+const StyledError = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 75vh;
+  font-weight: bold;
+  color: red;
+`;
+
+const StyledErrorH3 = styled.h3`
+  margin: 5px;
+`;
+
+const StyledLoading = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 75vh;
+  font-weight: bold;
+`;
+
 export default function RoomList() {
   const { data: rooms, error, isLoading } = useSWR("/api/rooms", fetcher);
 
-  // TODO: style
   if (error) {
-    return <div>failed to load</div>;
+    return (
+      <StyledError>
+        <StyledErrorH3>ERROR</StyledErrorH3>Failed to load rooms ☹︎
+      </StyledError>
+    );
   }
 
-  // TODO: style
   if (isLoading) {
-    return <div>loading...</div>;
+    return <StyledLoading>Loading your rooms...</StyledLoading>;
   }
 
   // TODO: empty state
