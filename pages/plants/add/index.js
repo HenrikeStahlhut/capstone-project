@@ -10,6 +10,8 @@ const Container = styled.div`
   justify-content: center;
 `;
 
+// TODO add search logic to search for plants in database/API
+
 export default function AddPlants() {
   return (
     <>
@@ -17,7 +19,7 @@ export default function AddPlants() {
       <Header>Add Plant</Header>
       <Container>
         <Button>
-          <StyledLink href="/add-own-plant">
+          <StyledLink href="/plants/create">
             I want to add my own Plant!
           </StyledLink>
         </Button>

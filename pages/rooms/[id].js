@@ -10,9 +10,7 @@ import BackButton from "@/components/BackButton/BackButton";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-//Styled Components
-
-const StyledCard = styled.div``;
+// Detail page of room
 
 export default function RoomDetailPage() {
   const router = useRouter();
@@ -20,11 +18,7 @@ export default function RoomDetailPage() {
 
   const { data: room, error, isLoading } = useSWR(`/api/rooms/${id}`, fetcher);
 
-  console.log("room", room, "error", error);
-
-  // const findRoom = rooms.find((room) => room._id === id);
-
-  // const { title } = findRoom;
+  // Error handling
 
   if (error || (room && room.error)) {
     console.log("render error");
@@ -40,6 +34,8 @@ export default function RoomDetailPage() {
   if (isLoading) {
     return <StyledLoading>Loading your rooms...</StyledLoading>;
   }
+
+  // return room details (plants, name, etc.)
 
   return (
     <>

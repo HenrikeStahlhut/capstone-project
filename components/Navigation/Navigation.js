@@ -27,7 +27,7 @@ export default function Navigation() {
           </StyledListItemContainer>
           {/* Add */}
           <StyledListItemContainer>
-            <StyledLink href="/add-plants" scroll={true}>
+            <StyledLink href="/plants/add" scroll={true}>
               <IoAddCircleSharp size="30px" />
               <StyledListItem>Add</StyledListItem>
             </StyledLink>

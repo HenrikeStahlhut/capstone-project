@@ -46,17 +46,6 @@ export default function AddPlantForm() {
               {room.title}
             </option>
           ))}
-          {/* <option value={RoomType.INVALID} disabled selected>
-            Select room
-          </option>
-          <option value={RoomType.KITCHEN}>Kitchen</option>
-          <option value={RoomType.BEDROOM}>Bedroom</option>
-          <option value={RoomType.LIVING_ROOM}>Living Room</option>
-          <option value={RoomType.HALLWAY}>Hallway</option>
-          <option value={RoomType.DINING_ROOM}>Dining Room</option>
-          <option value={RoomType.OFFICE}>Office</option>
-          <option value={RoomType.BATHROOM}>Bathroom</option> */}
-          {/* Map over Roomslist  */}
         </StyledSelect>
         <Button type="submit" href="/add-plants">
           Add to my garden!
