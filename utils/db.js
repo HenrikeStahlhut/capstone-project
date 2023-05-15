@@ -26,7 +26,7 @@ async function createRoom(room) {
 
 async function getRoom(id) {
   await connectDatabase();
-  const room = await Room.findOne({ id });
+  const room = await Room.findOne({ _id: id });
   return room;
 }
 
@@ -38,15 +38,15 @@ async function getAllRooms() {
 
 async function deleteRoom(id) {
   await connectDatabase();
-  const room = await Room.findOne({ id });
-  await Room.deleteOne({ id });
+  const room = await Room.findOne({ _id: id });
+  await Room.deleteOne({ _id: id });
   return room;
 }
 
 async function updateRoom(id, room) {
   await connectDatabase();
-  await Room.updateOne({ id }, room);
-  const updatedRoom = await Room.findOne({ id });
+  await Room.updateOne({ _id: id }, room);
+  const updatedRoom = await Room.findOne({ _id: id });
   return updatedRoom;
 }
 

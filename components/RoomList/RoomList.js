@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
+import RoomTile from "@/components/RoomTile/RoomTile.js";
 import {
   StyledError,
   StyledErrorH3,
   StyledLoading,
   GridContainer,
 } from "./RoomsList.Styled";
-import RoomTile from "@/components/RoomTile/RoomTile.js";
+import StyledLink from "../StyledLink/StyledLink";
 
 export default function RoomList() {
   const { data: rooms, error, isLoading } = useSWR("/api/rooms", fetcher);
@@ -29,7 +30,9 @@ export default function RoomList() {
     <>
       <GridContainer>
         {rooms.map((room, index) => (
-          <RoomTile key={index} title={room.title} type={room.type} />
+          <StyledLink key={index} href={`/rooms/${room._id}`}>
+            <RoomTile key={index} title={room.title} type={room.type} />
+          </StyledLink>
         ))}
       </GridContainer>
     </>
