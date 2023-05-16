@@ -20,7 +20,7 @@ export default function AddPlants() {
       <Container>
         <Button>
           <StyledLink href="/plants/create">
-            I want to add my own Plant!
+            I want to add my own plant!
           </StyledLink>
         </Button>
       </Container>

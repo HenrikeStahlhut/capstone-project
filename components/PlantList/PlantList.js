@@ -5,6 +5,8 @@ import {
   StyledErrorH3,
   StyledLoading,
 } from "../RoomList/RoomsList.Styled";
+import Header from "../Header/Header";
+import { StyledList, StyledListItem, StyledCard } from "./PlantList.Styled";
 
 export default function PlantList({ room }) {
   const {
@@ -12,7 +14,6 @@ export default function PlantList({ room }) {
     error,
     isLoading,
   } = useSWR(`/api/plants/${room}`, fetcher);
-  // const { data: rooms } = useSWR("/api/rooms", fetcher);
 
   if (error) {
     return (
@@ -28,15 +29,16 @@ export default function PlantList({ room }) {
 
   console.log("plants", plants);
 
-  // Filter plants that have certain room and compare to rooms _id
-  // const plantsInRoom = plants.filter(plants.room === rooms._id);
-
   return (
-    <div>
-      <h2>All Plants</h2>
-      {plants.map((plant) => (
-        <li key={plant._id}>{plant.title}</li>
-      ))}
-    </div>
+    <>
+      <Header>All Plants</Header>
+      <StyledList>
+        {plants.map((plant) => (
+          <StyledCard key={plant._id}>
+            <StyledListItem key={plant._id}>🪴 {plant.title}</StyledListItem>
+          </StyledCard>
+        ))}
+      </StyledList>
+    </>
   );
 }

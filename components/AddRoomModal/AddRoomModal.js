@@ -60,7 +60,6 @@ export default function AddRoomModal() {
       {modalOpen && (
         <StyledModal>
           <StyledOverlay onClick={toggleModal}></StyledOverlay>
-          {/* <StyledForm> */}
           <StyledModalContent>
             <StyledModalHeadline>Add Room</StyledModalHeadline>
             {error && <p>{error}</p>}
@@ -98,7 +97,6 @@ export default function AddRoomModal() {
 
             <StyledCloseModalBtn onClick={toggleModal}>✕</StyledCloseModalBtn>
           </StyledModalContent>
-          {/* </StyledForm> */}
         </StyledModal>
       )}
     </>

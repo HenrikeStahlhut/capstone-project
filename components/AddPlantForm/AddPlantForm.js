@@ -7,6 +7,7 @@ import {
   StyledLabel,
   StyledSelect,
   StyledForm,
+  StyledRequired,
 } from "../AddPlantForm/AddPlantForm.Styled";
 import {
   StyledError,
@@ -36,7 +37,7 @@ export default function AddPlantForm() {
   // add plant logic
   const handleAddPlant = () => {
     if (!title || !room) {
-      setError("Please fill in all fields");
+      setError(<StyledRequired>Please Fill in all fields!</StyledRequired>);
       return;
     }
 
@@ -72,7 +73,6 @@ export default function AddPlantForm() {
 
   return (
     <>
-      {error && <p>{error}</p>}
       <StyledForm onSubmit={(e) => e.preventDefault()}>
         <StyledLabel htmlFor="plant-name">Give your plant a name!</StyledLabel>
         <StyledInput
@@ -98,6 +98,7 @@ export default function AddPlantForm() {
         <StyledButton type="submit" onClick={handleAddPlant}>
           Add to my garden!
         </StyledButton>
+        {error && <p>{error}</p>}
       </StyledForm>
     </>
   );
