@@ -8,9 +8,16 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    const { title, type } = JSON.parse(req.body);
+    const { title, room } = req.body;
 
-    const plant = await createPlant({ title, type });
+    // ------- Notes -------------------
+    // const { title, room } = req.body;
+    // above is the same as:
+    // const title = req.body.title;
+    // const room = req.body.room;
+    // ---------------------------------
+
+    const plant = await createPlant({ title, room });
 
     return res.status(201).json(plant);
   }

@@ -2,7 +2,7 @@ import StyledLink from "../StyledLink/StyledLink";
 import styled from "styled-components";
 
 // Styled Component
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   color: white;
   border: none;
   border-radius: 20px;
@@ -12,7 +12,8 @@ const StyledButton = styled.button`
 `;
 
 // Button components for all onClick buttons on page
-export default function Button({ children, href }) {
+// TODO: remove wrapper component and directly export `StyledComponent`
+export default function Button({ children }) {
   return (
     <>
       <StyledButton>{children}</StyledButton>

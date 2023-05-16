@@ -1,14 +1,15 @@
 import useSWR from "swr";
+import { useRouter } from "next/router";
 import { fetcher } from "@/utils/fetcher";
 import Header from "@/components/Header/Header";
+import BackButton from "@/components/BackButton/BackButton";
+import Navigation from "@/components/Navigation/Navigation";
 import {
   StyledError,
   StyledErrorH3,
   StyledLoading,
 } from "@/components/RoomList/RoomsList.Styled";
-import BackButton from "@/components/BackButton/BackButton";
-import styled from "styled-components";
-import { useRouter } from "next/router";
+import PlantList from "@/components/PlantList/PlantList";
 
 // Detail page of room
 
@@ -41,6 +42,8 @@ export default function RoomDetailPage() {
     <>
       <BackButton href="/" />
       <Header>{room.title}</Header>
+      {/* <PlantList /> */}
+      <Navigation />
     </>
   );
 }

@@ -1,4 +1,5 @@
-import { getAllRooms, createRoom, getRoom } from "@/utils/db";
+import { getRoom } from "@/utils/db";
+import mongoose from "mongoose";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
@@ -6,7 +7,11 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing room ID" });
     }
 
+    console.log("QUERY", req.query.id);
+
     const room = await getRoom(req.query.id);
+
+    console.log("room", room);
 
     if (!room) {
       return res.status(404).json({ error: "Room not found" });

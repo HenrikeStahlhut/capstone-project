@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import RoomTile from "@/components/RoomTile/RoomTile.js";

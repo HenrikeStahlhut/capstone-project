@@ -5,11 +5,17 @@ import mongoose, { model, models, Schema } from "mongoose";
 const { MONGODB_URL } = process.env;
 
 const roomSchema = new Schema({
+  // _id: mongoose.Types.ObjectId,
   title: String,
   type: {
     type: String,
     enum: Object.keys(RoomType),
   },
+  // plants: [
+  //   {
+  //     title: String,
+  //   },
+  // ],
 });
 
 const Room = models.Room || model("Room", roomSchema);

@@ -1,26 +1,62 @@
-import styled from "styled-components";
-import { RoomType } from "@/components/RoomTile/RoomTile";
+import { StyledButton } from "@/components/Button/Button";
+import { fetcher } from "@/utils/fetcher";
+import { useState } from "react";
+import useSWR, { useSWRConfig } from "swr";
 import {
-  StyledForm,
-  StyledLabel,
   StyledInput,
+  StyledLabel,
   StyledSelect,
+  StyledForm,
 } from "../AddPlantForm/AddPlantForm.Styled";
-import Button from "@/components/Button/Button";
 import {
   StyledError,
   StyledErrorH3,
   StyledLoading,
 } from "../RoomList/RoomsList.Styled";
 
-import useSWR from "swr";
-import { fetcher } from "@/utils/fetcher";
-
-//TODO not list of RoomTypes --> user rooms need to be displayed, map over initialUserRooms[] in select
 export default function AddPlantForm() {
-  const { data: rooms, error, isLoading } = useSWR("/api/rooms", fetcher);
+  const { mutate } = useSWRConfig();
 
-  if (error) {
+  const [title, setTitle] = useState("");
+  const [room, setRoom] = useState(null);
+  const [error, setError] = useState(null);
+
+  // get created rooms from api
+  const {
+    data: rooms,
+    error: gettingRoomsError,
+    isLoading,
+  } = useSWR("/api/rooms", fetcher);
+
+  const clearInput = () => {
+    let input = document.getElementById("plant-name");
+    input.value = "";
+  };
+
+  // add plant logic
+  const handleAddPlant = () => {
+    if (!title || !room) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    fetch("/api/plants", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        room,
+      }),
+    }).then(() => {
+      mutate("/api/plants");
+    });
+    clearInput();
+  };
+
+  // error handling
+  if (gettingRoomsError) {
     return (
       <StyledError>
         <StyledErrorH3>ERROR</StyledErrorH3>Failed to load rooms ☹︎
@@ -29,27 +65,39 @@ export default function AddPlantForm() {
   }
 
   if (isLoading) {
-    return <StyledLoading>Loading your rooms...</StyledLoading>;
+    return <StyledLoading>Loading...</StyledLoading>;
   }
 
   // TODO: empty state if no rooms?
 
   return (
     <>
-      <StyledForm>
+      {error && <p>{error}</p>}
+      <StyledForm onSubmit={(e) => e.preventDefault()}>
         <StyledLabel htmlFor="plant-name">Give your plant a name!</StyledLabel>
-        <StyledInput type="text" id="plant-name" required placeholder="Name" />
+        <StyledInput
+          type="text"
+          id="plant-name"
+          placeholder="Name"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
         <StyledLabel htmlFor="room">Choose a room for your plant</StyledLabel>
-        <StyledSelect id="room" name="room" required="required">
+        <StyledSelect
+          id="room"
+          name="room"
+          value={room}
+          onChange={(e) => setRoom(e.target.value)}
+        >
           {rooms.map((room, index) => (
-            <option key={index} value={index}>
+            <option key={index} value={room._id}>
               {room.title}
             </option>
           ))}
         </StyledSelect>
-        <Button type="submit" href="/add-plants">
+        <StyledButton type="submit" onClick={handleAddPlant}>
           Add to my garden!
-        </Button>
+        </StyledButton>
       </StyledForm>
     </>
   );
