@@ -4,7 +4,6 @@ import mongoose, { model, models, Schema } from "mongoose";
 const { MONGODB_URL } = process.env;
 
 const plantSchema = new Schema({
-  _id: mongoose.Types.ObjectId,
   title: String,
   room: { type: mongoose.Types.ObjectId, ref: "Room._id" },
 });

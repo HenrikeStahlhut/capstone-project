@@ -39,7 +39,8 @@ export default function AddPlantForm() {
       setError("Please fill in all fields");
       return;
     }
-    fetch("/api/rooms", {
+
+    fetch("/api/plants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +50,7 @@ export default function AddPlantForm() {
         room,
       }),
     }).then(() => {
-      mutate("/api/rooms");
+      mutate("/api/plants");
     });
     clearInput();
   };
