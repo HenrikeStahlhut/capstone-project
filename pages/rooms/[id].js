@@ -21,6 +21,10 @@ export default function RoomDetailPage() {
 
   // Error handling
 
+  if (!room) {
+    return null;
+  }
+
   if (error || (room && room.error)) {
     console.log("render error");
 
@@ -42,7 +46,7 @@ export default function RoomDetailPage() {
     <>
       <BackButton href="/" />
       <Header>{room.title}</Header>
-      {/* <PlantList /> */}
+      <PlantList room={room._id} />
       <Navigation />
     </>
   );

@@ -8,10 +8,10 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    const { title, type } = req.body;
+    const { title, type, rooms } = req.body;
 
-    // const room = await createRoom({ title, type, rooms });
-    const room = await createRoom({ title, type });
+    const room = await createRoom({ title, type, rooms });
+    // const room = await createRoom({ title, type });
 
     return res.status(201).json(room);
   }

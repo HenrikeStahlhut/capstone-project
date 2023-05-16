@@ -11,6 +11,8 @@ const plantSchema = new Schema({
 
 const Plant = models.Plant || model("Plant", plantSchema);
 
+export default Plant;
+
 async function connectDatabase() {
   await mongoose.connect(MONGODB_URL);
 }
@@ -27,7 +29,7 @@ async function getPlant(id) {
   return plant;
 }
 
-async function getAllPlants() {
+async function getAllPlants(roomID) {
   await connectDatabase();
   const elements = await Plant.find({});
   return elements;
@@ -47,4 +49,4 @@ async function updatePlant(id, plant) {
   return updatedPlant;
 }
 
-export { createPlant, getPlant, getAllPlants, deletePlant, updatePlant };
+export { createPlant, getPlant, getAllPlants, deletePlant, updatePlant, Plant };
