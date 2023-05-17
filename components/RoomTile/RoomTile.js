@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { StyledTileTitle, StyledImageContainer } from "./RoomTile.Styled";
 
-// Freezed Object which contains all types of rooms (e.g. kitchen) that the user can choose from later on when adding a room
+// Freezed Object which contains all types of rooms (e.g. kitchen) that the user can choose from when adding a room
 export const RoomType = Object.freeze({
   INVALID: "INVALID",
   KITCHEN: "KITCHEN",

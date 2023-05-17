@@ -30,7 +30,7 @@ export default function RoomList() {
       <GridContainer>
         {rooms.map((room, index) => (
           <StyledLink key={index} href={`/rooms/${room._id}`}>
-            <RoomTile key={index} title={room.title} type={room.type} />
+            <RoomTile title={room.title} type={room.type} />
           </StyledLink>
         ))}
       </GridContainer>

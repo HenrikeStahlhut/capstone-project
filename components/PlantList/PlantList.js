@@ -27,8 +27,6 @@ export default function PlantList({ room }) {
     return <StyledLoading>Loading your plants 🪴...</StyledLoading>;
   }
 
-  console.log("plants", plants);
-
   return (
     <>
       <Header>All Plants</Header>

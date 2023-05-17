@@ -29,13 +29,10 @@ export default function AddPlantForm() {
     isLoading,
   } = useSWR("/api/rooms", fetcher);
 
-  const clearInput = () => {
-    let input = document.getElementById("plant-name");
-    input.value = "";
-  };
-
   // add plant logic
-  const handleAddPlant = () => {
+  const handleAddPlant = (event) => {
+    event.preventDefault();
+
     if (!title || !room) {
       setError(<StyledRequired>Please Fill in all fields!</StyledRequired>);
       return;
@@ -53,7 +50,8 @@ export default function AddPlantForm() {
     }).then(() => {
       mutate("/api/plants");
     });
-    clearInput();
+    setTitle("");
+    setRoom(" ");
   };
 
   // error handling
@@ -73,7 +71,7 @@ export default function AddPlantForm() {
 
   return (
     <>
-      <StyledForm onSubmit={(e) => e.preventDefault()}>
+      <StyledForm onSubmit={handleAddPlant}>
         <StyledLabel htmlFor="plant-name">Give your plant a name!</StyledLabel>
         <StyledInput
           type="text"
@@ -95,9 +93,7 @@ export default function AddPlantForm() {
             </option>
           ))}
         </StyledSelect>
-        <StyledButton type="submit" onClick={handleAddPlant}>
-          Add to my garden!
-        </StyledButton>
+        <StyledButton type="submit">Add to my garden!</StyledButton>
         {error && <p>{error}</p>}
       </StyledForm>
     </>
