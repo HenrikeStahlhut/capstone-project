@@ -24,7 +24,6 @@ export default function RoomList() {
     return <StyledLoading>Loading your rooms...</StyledLoading>;
   }
 
-  // TODO: empty state
   return (
     <>
       <GridContainer>
