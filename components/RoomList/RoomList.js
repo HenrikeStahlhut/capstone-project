@@ -28,7 +28,7 @@ export default function RoomList() {
     <>
       <GridContainer>
         {rooms.map((room, index) => (
-          <StyledLink key={index} href={`/rooms/${room._id}`}>
+          <StyledLink key={index} href={`/static/images/${room._id}`}>
             <RoomTile title={room.title} type={room.type} />
           </StyledLink>
         ))}
