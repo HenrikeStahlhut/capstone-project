@@ -1,4 +1,5 @@
 import Plant from "@/utils/db_plants";
+import mongoose from "mongoose";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
