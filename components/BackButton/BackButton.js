@@ -6,6 +6,7 @@ import { IoArrowBackOutline } from "react-icons/io5";
 const StyledBackButton = styled.button`
   border: none;
   background-color: transparent;
+  margin: 20px 30px;
 `;
 
 export default function BackButton({ href }) {

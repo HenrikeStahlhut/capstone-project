@@ -23,3 +23,7 @@ export const StyledSelect = styled.select`
   border-radius: 15px;
   padding: 7px 15px;
 `;
+
+export const StyledRequired = styled.span`
+  color: red;
+`;

@@ -6,7 +6,7 @@ import AddPlantForm from "@/components/AddPlantForm/AddPlantForm";
 export default function AddPlants() {
   return (
     <>
-      <BackButton href="/add-plants" />
+      <BackButton href="/plants/add" />
       <Header>Add your own Plant</Header>
       <AddPlantForm />
       <Navigation />

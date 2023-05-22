@@ -1,5 +1,3 @@
-import styled from "styled-components";
-import Link from "next/link";
 import {
   IoAddCircleSharp,
   IoHomeSharp,
@@ -20,14 +18,14 @@ export default function Navigation() {
         <StyledNav>
           {/* Home */}
           <StyledListItemContainer>
-            <StyledLink href="/" scroll={true}>
+            <StyledLink href="/">
               <IoHomeSharp size="30px" />
               <StyledListItem>Home</StyledListItem>
             </StyledLink>
           </StyledListItemContainer>
           {/* Add */}
           <StyledListItemContainer>
-            <StyledLink href="/add-plants" scroll={true}>
+            <StyledLink href="/plants/add">
               <IoAddCircleSharp size="30px" />
               <StyledListItem>Add</StyledListItem>
             </StyledLink>
@@ -35,7 +33,7 @@ export default function Navigation() {
           {/* tod */}
           <StyledLink href="/">
             <StyledListItemContainer>
-              <IoCalendarClear size="30px" scroll={true} />
+              <IoCalendarClear size="30px" />
               <StyledListItem>To-Do</StyledListItem>
             </StyledListItemContainer>
           </StyledLink>
