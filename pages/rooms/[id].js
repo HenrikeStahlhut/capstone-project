@@ -10,6 +10,7 @@ import {
   StyledLoading,
 } from "@/components/RoomList/RoomsList.Styled";
 import PlantList from "@/components/PlantList/PlantList";
+import EditIcon from "@/components/EditIcon/EditIcon";
 
 // Detail page of room
 
