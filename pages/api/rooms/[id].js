@@ -16,7 +16,11 @@ export default async function handler(req, res) {
     return res.status(200).json(room);
   }
 
-  // TODO: PUT method to update
+  if (req.method === "PUT") {
+    const roomData = req.body;
+    await Room.findByIdAndUpdate(id, roomData);
+    response.status(200).json({ message: `Room updated!` });
+  }
 
   return res.status(405).end({ error: `Method ${req.method} Not Allowed` });
 }
