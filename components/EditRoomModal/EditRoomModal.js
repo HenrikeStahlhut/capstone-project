@@ -42,11 +42,9 @@ async function sendRequest(url, { arg }) {
 }
 
 export default function EditRoomModal({ room }) {
-  const { mutate } = useSWRConfig();
   const router = useRouter();
   const { id } = router.query;
 
-  const { data, isLoading } = useSWR(`/api/rooms/${id}`);
   const { trigger } = useSWRMutation(`/api/rooms/${id}`, sendRequest);
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -75,6 +73,7 @@ export default function EditRoomModal({ room }) {
     <>
       <StyledButton>
         <HiPencilAlt size="20px" onClick={toggleModal} />
+        Edit room
       </StyledButton>
       {modalOpen && (
         <StyledModal>
