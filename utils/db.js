@@ -50,4 +50,4 @@ async function updateRoom(id, room) {
   return updatedRoom;
 }
 
-export { createRoom, getRoom, getAllRooms, deleteRoom, updateRoom, Room };
+export { createRoom, getRoom, getAllRooms, deleteRoom, updateRoom };
