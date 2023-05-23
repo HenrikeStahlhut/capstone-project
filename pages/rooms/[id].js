@@ -10,6 +10,7 @@ import {
   StyledLoading,
 } from "@/components/RoomList/RoomsList.Styled";
 import PlantList from "@/components/PlantList/PlantList";
+import EditRoomModal from "@/components/EditRoomModal/EditRoomModal";
 
 // Detail page of room
 
@@ -46,6 +47,7 @@ export default function RoomDetailPage() {
     <>
       <BackButton href="/" />
       <Header>{room.title}</Header>
+      <EditRoomModal room={room} />
       <PlantList room={room._id} />
       <Navigation />
     </>

@@ -1,4 +1,4 @@
-import { getRoom } from "@/utils/db";
+import { getRoom, updateRoom } from "@/utils/db";
 import mongoose from "mongoose";
 
 export default async function handler(req, res) {
@@ -16,7 +16,13 @@ export default async function handler(req, res) {
     return res.status(200).json(room);
   }
 
-  // TODO: PUT method to update
+  if (req.method === "PUT") {
+    const roomData = req.body;
+    const id = req.query.id;
+
+    const updatedroom = await updateRoom(id, roomData);
+    return res.status(200).json(updatedroom);
+  }
 
   return res.status(405).end({ error: `Method ${req.method} Not Allowed` });
 }
