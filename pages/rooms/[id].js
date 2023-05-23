@@ -11,6 +11,7 @@ import {
 } from "@/components/RoomList/RoomsList.Styled";
 import PlantList from "@/components/PlantList/PlantList";
 import EditRoomModal from "@/components/EditRoomModal/EditRoomModal";
+import DeleteButton from "@/components/DeleteButton/DeleteButton";
 
 // Detail page of room
 
@@ -48,6 +49,7 @@ export default function RoomDetailPage() {
       <BackButton href="/" />
       <Header>{room.title}</Header>
       <EditRoomModal room={room} />
+      <DeleteButton room={room} />
       <PlantList room={room._id} />
       <Navigation />
     </>

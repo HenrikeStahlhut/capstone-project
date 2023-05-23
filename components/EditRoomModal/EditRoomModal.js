@@ -7,23 +7,17 @@ import {
   StyledModal,
   StyledModalContent,
   StyledModalHeadline,
-  StyledOpenBtn,
   StyledOverlay,
 } from "../AddRoomModal/AddRoomModal.Styled";
-import {
-  StyledInput,
-  StyledLabel,
-  StyledSelect,
-} from "../AddPlantForm/AddPlantForm.Styled";
-import { RoomType } from "../RoomTile/RoomTile";
+import { StyledInput, StyledLabel } from "../AddPlantForm/AddPlantForm.Styled";
 import { useSWRConfig } from "swr";
-import useSWR from "swr";
 import { useRouter } from "next/router";
 import useSWRMutation from "swr/mutation";
 
 const StyledButton = styled.button`
   border: none;
   background-color: transparent;
+  cursor: pointer;
 `;
 
 async function sendRequest(url, { arg }) {
@@ -46,7 +40,6 @@ export default function EditRoomModal({ room }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data, isLoading } = useSWR(`/api/rooms/${id}`);
   const { trigger } = useSWRMutation(`/api/rooms/${id}`, sendRequest);
 
   const [modalOpen, setModalOpen] = useState(false);
