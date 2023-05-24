@@ -1,5 +1,5 @@
-import { fetcher } from "@/utils/fetcher";
 import useSWR from "swr";
+import { fetcher } from "@/utils/fetcher";
 import {
   StyledList,
   StyledListItem,
@@ -11,8 +11,12 @@ import {
   StyledLoading,
 } from "../RoomList/RoomsList.Styled";
 
-export default function AllPlantsList() {
-  const { data: plants, error, isLoading } = useSWR("/api/plants", fetcher);
+export default function AllPlantsList({ room }) {
+  const {
+    data: plants,
+    error,
+    isLoading,
+  } = useSWR(`/api/plants/${room}`, fetcher);
 
   if (error) {
     return (
@@ -32,7 +36,7 @@ export default function AllPlantsList() {
         {plants.map((plant) => (
           <StyledCard key={plant._id}>
             <StyledListItem key={plant._id}>
-              🪴 {plant.title} - Room: {plant.room}
+              🪴 {plant.title} - Room: {plant.rooms[0].title}
             </StyledListItem>
           </StyledCard>
         ))}

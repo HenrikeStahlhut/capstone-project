@@ -15,6 +15,8 @@ export default function PlantList({ room }) {
     isLoading,
   } = useSWR(`/api/plants/${room}`, fetcher);
 
+  console.log("plants", plants);
+
   if (error) {
     return (
       <StyledError>
@@ -33,7 +35,9 @@ export default function PlantList({ room }) {
       <StyledList>
         {plants.map((plant) => (
           <StyledCard key={plant._id}>
-            <StyledListItem key={plant._id}>🪴 {plant.title}</StyledListItem>
+            <StyledListItem key={plant._id}>
+              🪴 {plant.title} - Room: {plant.rooms[0].title}
+            </StyledListItem>
           </StyledCard>
         ))}
       </StyledList>

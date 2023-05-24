@@ -42,8 +42,6 @@ export default function RoomDetailPage() {
     return <StyledLoading>Loading your rooms...</StyledLoading>;
   }
 
-  // return room details (plants, name, etc.)
-
   return (
     <>
       <BackButton href="/" />

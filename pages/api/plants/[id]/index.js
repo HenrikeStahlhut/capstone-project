@@ -9,6 +9,14 @@ export default async function handler(req, res) {
 
     const plantsInRoom = await Plant.aggregate([
       { $match: { room: new mongoose.Types.ObjectId(req.query.id) } },
+      {
+        $lookup: {
+          from: "rooms",
+          localField: "room",
+          foreignField: "_id",
+          as: "rooms",
+        },
+      },
     ]);
 
     if (!plantsInRoom) {
