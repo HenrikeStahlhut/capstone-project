@@ -36,7 +36,10 @@ export default function AllPlantsList({ room }) {
         {plants.map((plant) => (
           <StyledCard key={plant._id}>
             <StyledListItem key={plant._id}>
-              🪴 {plant.title} - Room:{plants.rooms[0].title}
+              🪴 {plant.title} - Room:
+              {plant.rooms.length > 0
+                ? plant.rooms[0].title
+                : "currently no room assigned"}
             </StyledListItem>
           </StyledCard>
         ))}
