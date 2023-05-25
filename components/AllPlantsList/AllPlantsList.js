@@ -14,8 +14,6 @@ import {
 export default function AllPlantsList({ room }) {
   const { data: plants, error, isLoading } = useSWR(`/api/plants`, fetcher);
 
-  console.log("plants", plants);
-
   if (error) {
     return (
       <StyledError>

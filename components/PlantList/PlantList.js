@@ -15,8 +15,6 @@ export default function PlantList({ room }) {
     isLoading,
   } = useSWR(`/api/plants/${room}`, fetcher);
 
-  console.log("plants", plants);
-
   if (error) {
     return (
       <StyledError>
