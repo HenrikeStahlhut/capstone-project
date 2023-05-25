@@ -36,7 +36,8 @@ export default function PlantList({ room }) {
         {plants.map((plant) => (
           <StyledCard key={plant._id}>
             <StyledListItem key={plant._id}>
-              🪴 {plant.title} - Room: {plant.rooms[0].title}
+              🪴 {plant.title} <br />
+              Room: {plant.rooms[0].title}
             </StyledListItem>
           </StyledCard>
         ))}

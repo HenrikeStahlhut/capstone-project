@@ -28,18 +28,16 @@ export default function AllPlantsList({ room }) {
     return <StyledLoading>Loading your plants ...</StyledLoading>;
   }
 
-  //! plants.rooms[0].title returns 0 sometimes because some rooms were deleted, which means those plants have no assigned room
-
   return (
     <>
       <StyledList>
         {plants.map((plant) => (
           <StyledCard key={plant._id}>
             <StyledListItem key={plant._id}>
-              🪴 {plant.title} - Room:
+              🪴 {plant.title} <br /> Room:
               {plant.rooms.length > 0
                 ? plant.rooms[0].title
-                : "currently no room assigned"}
+                : "No room assigned"}
             </StyledListItem>
           </StyledCard>
         ))}
