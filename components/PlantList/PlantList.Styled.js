@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledList = styled.ul`
-  margin: 20px 50px;
+  margin: 30px 40px 100px 40px;
   padding: 0;
   list-style: none;
 `;

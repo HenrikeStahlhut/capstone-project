@@ -1,25 +1,23 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import { fetcher } from "@/utils/fetcher";
-import Header from "@/components/Header/Header";
+import AllPlantsList from "@/components/AllPlantsList/AllPlantsList";
 import BackButton from "@/components/BackButton/BackButton";
-import Navigation from "@/components/Navigation/Navigation";
+import Header from "@/components/Header/Header";
 import {
   StyledError,
   StyledErrorH3,
   StyledLoading,
 } from "@/components/RoomList/RoomsList.Styled";
-import PlantList from "@/components/PlantList/PlantList";
-import EditRoomModal from "@/components/EditRoomModal/EditRoomModal";
-import DeleteButton from "@/components/DeleteButton/DeleteButton";
+import Navigation from "@/components/Navigation/Navigation";
 
-// Detail page of room
-
-export default function RoomDetailPage() {
+export default function AllPlants() {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data: room, error, isLoading } = useSWR(`/api/rooms/${id}`, fetcher);
+  const { data: room, error, isLoading } = useSWR(`/api/rooms`, fetcher);
+
+  console.log("room", room);
 
   // Error handling
 
@@ -45,10 +43,8 @@ export default function RoomDetailPage() {
   return (
     <>
       <BackButton href="/" />
-      <Header>{room.title}</Header>
-      <EditRoomModal room={room} />
-      <DeleteButton room={room} />
-      <PlantList room={room._id} />
+      <Header>Your Plants</Header>
+      <AllPlantsList room={room._id} />
       <Navigation />
     </>
   );
