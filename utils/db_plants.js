@@ -28,9 +28,18 @@ async function getPlant(id) {
   return plant;
 }
 
-async function getAllPlants(roomID) {
+async function getAllPlants() {
   await connectDatabase();
-  const elements = await Plant.find({});
+  const elements = await Plant.aggregate([
+    {
+      $lookup: {
+        from: "rooms",
+        localField: "room",
+        foreignField: "_id",
+        as: "rooms",
+      },
+    },
+  ]);
   return elements;
 }
 
