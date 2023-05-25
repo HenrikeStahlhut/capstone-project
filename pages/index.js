@@ -9,6 +9,9 @@ export default function Homepage() {
     <div>
       <AddRoomModal />
       <Header>My Rooms</Header>
+      <button>
+        <a href="/plants/all">All plants Overview</a>
+      </button>
       <RoomList />
       <Navigation />
     </div>
