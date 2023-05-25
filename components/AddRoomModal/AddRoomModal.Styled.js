@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledOpenBtn = styled.button`
   position: absolute;
-  top: 20px;
+  top: 80px;
   right: 50px;
   padding: 5px 7px;
   border: none;
