@@ -45,9 +45,11 @@ export default function RoomDetailPage() {
   return (
     <>
       <BackButton href="/" />
-      <Header>{room.title}</Header>
-      <EditRoomModal room={room} />
-      <DeleteButton room={room} />
+      <Header>
+        {room.title} <EditRoomModal room={room} />
+        <DeleteButton room={room} />
+      </Header>
+
       <PlantList room={room._id} />
       <Navigation />
     </>
