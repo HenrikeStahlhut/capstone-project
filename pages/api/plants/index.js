@@ -8,9 +8,9 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    const { title, room } = req.body;
+    const { title, room, type } = req.body;
 
-    const plant = await createPlant({ title, room });
+    const plant = await createPlant({ title, room, type });
 
     return res.status(201).json(plant);
   }

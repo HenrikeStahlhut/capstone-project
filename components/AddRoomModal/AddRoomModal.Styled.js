@@ -26,7 +26,7 @@ export const StyledOverlay = styled.div`
 `;
 export const StyledModalContent = styled.div`
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;

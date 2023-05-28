@@ -12,6 +12,7 @@ import {
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import Greeting from "@/components/Greeting/Greeting";
+import { PlantType } from "@/components/AddPlantForm/AddPlantForm";
 
 // StyledComponents
 
@@ -35,13 +36,21 @@ const StyledCardHeadline = styled.h3`
   font-weight: bold;
 `;
 
-const StyledImage = styled(Image)`
+export const StyledImage = styled(Image)`
   border-radius: 10px;
   margin: 0px 10px;
 `;
 
 export default function Homepage() {
   const { data: rooms, error, isLoading } = useSWR("/api/rooms", fetcher);
+  const {
+    data: plants,
+    error: plantsError,
+    isLoading: plantsLoading,
+  } = useSWR("/api/plants", fetcher);
+
+  console.log("rooms", rooms);
+  console.log("plants", plants);
 
   if (error) {
     return (
@@ -53,6 +62,18 @@ export default function Homepage() {
 
   if (isLoading) {
     return <StyledLoading>Loading your rooms...</StyledLoading>;
+  }
+
+  if (plantsError) {
+    return (
+      <StyledError>
+        <StyledErrorH3>ERROR</StyledErrorH3>Failed to load plants
+      </StyledError>
+    );
+  }
+
+  if (plantsLoading) {
+    return <StyledLoading>Loading your plants ...</StyledLoading>;
   }
 
   return (
@@ -75,6 +96,21 @@ export default function Homepage() {
                 width={90}
                 height={90}
                 alt={room.title}
+              ></StyledImage>
+            ))}
+          </StyledCard>
+        </Link>
+
+        <StyledCardHeadline>My Plants</StyledCardHeadline>
+        <Link href={"/plants/all"}>
+          <StyledCard>
+            {plants.map((plant) => (
+              <StyledImage
+                key={plant._id}
+                src={`/plants/${plant.type}.jpeg`}
+                width={90}
+                height={90}
+                alt={plant.title}
               ></StyledImage>
             ))}
           </StyledCard>

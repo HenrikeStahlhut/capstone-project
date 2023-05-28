@@ -30,13 +30,11 @@ export default function Navigation() {
               <StyledListItem>Add</StyledListItem>
             </StyledLink>
           </StyledListItemContainer>
-          {/* tod */}
-          <StyledLink href="/">
-            <StyledListItemContainer>
-              <IoCalendarClear size="30px" />
-              <StyledListItem>To-Do</StyledListItem>
-            </StyledListItemContainer>
-          </StyledLink>
+          {/* todo */}
+          <StyledListItemContainer>
+            <IoCalendarClear size="30px" />
+            <StyledListItem>To-Do</StyledListItem>
+          </StyledListItemContainer>
         </StyledNav>
       </StyledNavContainer>
     </>
