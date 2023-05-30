@@ -1,6 +1,6 @@
 // Based on: https://github.com/neuefische/hh-web-23-2/blob/24a26a1d0bd074917b1ae7e63e54a9adb49d72ad/sessions/backend-mongodb-atlas/assets/db.js
 import mongoose, { model, models, Schema } from "mongoose";
-import { PlantType } from "@/components/AddPlantForm/AddPlantForm";
+import { PlantType } from "@/utils/PlantType";
 
 const { MONGODB_URL } = process.env;
 
