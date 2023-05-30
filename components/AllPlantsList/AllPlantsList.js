@@ -4,6 +4,7 @@ import {
   StyledList,
   StyledListItem,
   StyledCard,
+  StyledPlantDetails,
 } from "@/components/PlantList/PlantList.Styled";
 import {
   StyledError,
@@ -40,10 +41,13 @@ export default function AllPlantsList({ room }) {
                 height={90}
                 alt={plant.title}
               ></StyledImage>{" "}
-              {plant.title} <br /> Room:
-              {plant.rooms.length > 0
-                ? plant.rooms[0].title
-                : "No room assigned"}
+              <StyledPlantDetails>
+                {plant.title} <br />
+                Room:
+                {plant.rooms.length > 0
+                  ? plant.rooms[0].title
+                  : "No room assigned"}
+              </StyledPlantDetails>
             </StyledListItem>
           </StyledCard>
         ))}

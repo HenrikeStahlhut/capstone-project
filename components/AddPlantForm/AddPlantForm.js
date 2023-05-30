@@ -75,7 +75,7 @@ export default function AddPlantForm() {
     <>
       <StyledForm onSubmit={handleAddPlant}>
         {/* Plant Name */}
-        <StyledLabel htmlFor="plant-name">Give your plant a name!</StyledLabel>
+        <StyledLabel htmlFor="plant-name">Give your plant a name</StyledLabel>
         <StyledInput
           type="text"
           id="plant-name"
@@ -93,13 +93,12 @@ export default function AddPlantForm() {
           value={type}
           onChange={(e) => setType(e.target.value)}
         >
-          <option value={PlantType.INVALID} disabled selected>
+          <option value="" disabled selected>
             Select plant type
           </option>
           <option value={PlantType.INVALID}>No plant type</option>
           <option value={PlantType.MONEY_PLANT}>Money Plant</option>
           <option value={PlantType.PHILODENDRON}>Philodendron</option>
-          <option value={PlantType.CHINESE_EVERGREEN}>Chinese Evergreen</option>
           <option value={PlantType.SPIDER_PLANT}>Spider Plant</option>
           <option value={PlantType.STRING_OF_PERLS}>String of perls</option>
           <option value={PlantType.STAGHORN_FERN}>Staghorn fern</option>
@@ -135,6 +134,9 @@ export default function AddPlantForm() {
           value={room}
           onChange={(e) => setRoom(e.target.value)}
         >
+          <option value="" disabled selected>
+            Select room
+          </option>
           {rooms.map((room, index) => (
             <option key={index} value={room._id}>
               {room.title}

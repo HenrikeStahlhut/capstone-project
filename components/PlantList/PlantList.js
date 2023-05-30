@@ -6,7 +6,12 @@ import {
   StyledLoading,
 } from "../RoomList/RoomsList.Styled";
 import Header from "../Header/Header";
-import { StyledList, StyledListItem, StyledCard } from "./PlantList.Styled";
+import {
+  StyledList,
+  StyledListItem,
+  StyledCard,
+  StyledPlantDetails,
+} from "./PlantList.Styled";
 import styled from "styled-components";
 import Image from "next/image";
 
@@ -48,8 +53,10 @@ export default function PlantList({ room }) {
                 height={90}
                 alt={plant.title}
               ></StyledImage>
-              {plant.title} <br />
-              Room: {plant.rooms[0].title}
+              <StyledPlantDetails>
+                {plant.title} <br />
+                Room: {plant.rooms[0].title}
+              </StyledPlantDetails>
             </StyledListItem>
           </StyledCard>
         ))}

@@ -7,6 +7,8 @@ export const StyledList = styled.ul`
 `;
 
 export const StyledListItem = styled.li`
+  display: flex;
+  align-items: center;
   cursor: pointer;
 `;
 
@@ -15,4 +17,8 @@ export const StyledCard = styled.div`
   border-radius: 15px;
   padding: 15px;
   margin-bottom: 20px;
+`;
+
+export const StyledPlantDetails = styled.div`
+  display: flex;
 `;
