@@ -6,7 +6,19 @@ import {
   StyledLoading,
 } from "../RoomList/RoomsList.Styled";
 import Header from "../Header/Header";
-import { StyledList, StyledListItem, StyledCard } from "./PlantList.Styled";
+import {
+  StyledList,
+  StyledListItem,
+  StyledCard,
+  StyledPlantDetails,
+} from "./PlantList.Styled";
+import styled from "styled-components";
+import Image from "next/image";
+
+export const StyledImage = styled(Image)`
+  border-radius: 10px;
+  margin: 0px 10px;
+`;
 
 export default function PlantList({ room }) {
   const {
@@ -34,8 +46,17 @@ export default function PlantList({ room }) {
         {plants.map((plant) => (
           <StyledCard key={plant._id}>
             <StyledListItem key={plant._id}>
-              🪴 {plant.title} <br />
-              Room: {plant.rooms[0].title}
+              <StyledImage
+                key={plant._id}
+                src={`/plants/${plant.type}.jpeg`}
+                width={90}
+                height={90}
+                alt={plant.title}
+              ></StyledImage>
+              <StyledPlantDetails>
+                {plant.title} <br />
+                Room: {plant.rooms[0].title}
+              </StyledPlantDetails>
             </StyledListItem>
           </StyledCard>
         ))}

@@ -44,7 +44,7 @@ export default function RoomDetailPage() {
 
   return (
     <>
-      <BackButton href="/" />
+      <BackButton href="/rooms/all" />
       <Header>
         {room.title} <EditRoomModal room={room} />
         <DeleteButton room={room} />

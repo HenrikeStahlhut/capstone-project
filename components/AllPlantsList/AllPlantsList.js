@@ -4,12 +4,14 @@ import {
   StyledList,
   StyledListItem,
   StyledCard,
+  StyledPlantDetails,
 } from "@/components/PlantList/PlantList.Styled";
 import {
   StyledError,
   StyledErrorH3,
   StyledLoading,
 } from "../RoomList/RoomsList.Styled";
+import { StyledImage } from "@/pages";
 
 export default function AllPlantsList({ room }) {
   const { data: plants, error, isLoading } = useSWR(`/api/plants`, fetcher);
@@ -32,10 +34,20 @@ export default function AllPlantsList({ room }) {
         {plants.map((plant) => (
           <StyledCard key={plant._id}>
             <StyledListItem key={plant._id}>
-              🪴 {plant.title} <br /> Room:
-              {plant.rooms.length > 0
-                ? plant.rooms[0].title
-                : "No room assigned"}
+              <StyledImage
+                key={plant._id}
+                src={`/plants/${plant.type}.jpeg`}
+                width={90}
+                height={90}
+                alt={plant.title}
+              ></StyledImage>{" "}
+              <StyledPlantDetails>
+                {plant.title} <br />
+                Room:
+                {plant.rooms.length > 0
+                  ? plant.rooms[0].title
+                  : "No room assigned"}
+              </StyledPlantDetails>
             </StyledListItem>
           </StyledCard>
         ))}

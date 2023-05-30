@@ -74,19 +74,20 @@ export default function EditRoomModal({ room }) {
           <StyledOverlay onClick={toggleModal}></StyledOverlay>
           <StyledModalContent>
             <StyledModalHeadline>Edit Room</StyledModalHeadline>
-            <form onSubmit={handleEdit}>
-              <StyledLabel htmlFor="name">Name</StyledLabel>
-              <StyledInput
-                type="text"
-                id="name"
-                name="title"
-                required
-                value={title}
-                onChange={handleTitleChange}
-              />
 
-              <StyledAddButton type="submit">Save edits</StyledAddButton>
-            </form>
+            <StyledLabel htmlFor="name">Name</StyledLabel>
+            <StyledInput
+              type="text"
+              id="name"
+              name="title"
+              required
+              value={title}
+              onChange={handleTitleChange}
+            />
+
+            <StyledAddButton type="submit" onClick={handleEdit}>
+              Save edits
+            </StyledAddButton>
 
             <StyledCloseModalBtn onClick={toggleModal}>✕</StyledCloseModalBtn>
           </StyledModalContent>
