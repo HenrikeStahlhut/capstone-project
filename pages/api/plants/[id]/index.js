@@ -26,5 +26,20 @@ export default async function handler(req, res) {
     return res.status(200).json(plantsInRoom);
   }
 
+  if (req.method === "PUT") {
+    const plantData = req.body;
+    const id = req.query.id;
+
+    const updatedPlant = await updatePlant(id, plantData);
+    return res.status(200).json(updatedPlant);
+  }
+
+  if (req.method === "DELETE") {
+    const id = req.query.id;
+
+    const deletePlant = await deletePlant(id);
+    return res.status(200).json(deletePlant);
+  }
+
   return res.status(405).end({ error: `Method ${req.method} Not Allowed` });
 }

@@ -43,7 +43,7 @@ export default function AllPlants() {
   return (
     <>
       <BackButton href="/" />
-      <Header>Your Plants</Header>
+      <Header>My Plants</Header>
       <AllPlantsList room={room._id} />
       <Navigation />
     </>
