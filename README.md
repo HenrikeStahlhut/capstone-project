@@ -11,11 +11,13 @@ Transform the way you nurture and care for your beloved houseplants with PlantPa
 manage, and grow your indoor plants. Whether you're a seasoned plant enthusiast or just starting your green journey, 
 PlantPal will be your trusted companion every step of the way.
 
-### [Demo](https://capstone-project-peach-omega.vercel.app/)
+
 
 
 ### Screenshots 
 
+### Demo
+<a href="https://capstone-project-peach-omega.vercel.app/"><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"></a>
 
 ### Built with
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
