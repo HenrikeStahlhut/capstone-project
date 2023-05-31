@@ -6,7 +6,7 @@ const { MONGODB_URL } = process.env;
 
 const plantSchema = new Schema({
   title: String,
-  // room: { type: mongoose.Types.ObjectId, ref: "Room._id" },
+  room: { type: mongoose.Types.ObjectId, ref: "Room._id" },
   // room: { type: mongoose.Types.ObjectId, ref: "Room" },
   type: {
     type: String,

@@ -21,8 +21,8 @@ export default function AddPlantForm() {
 
   const [title, setTitle] = useState("");
   const [room, setRoom] = useState(null);
-  const [error, setError] = useState(null);
   const [type, setType] = useState(undefined);
+  const [error, setError] = useState(null);
 
   // get created rooms from api
   const {
@@ -54,7 +54,7 @@ export default function AddPlantForm() {
       mutate("/api/plants");
     });
     setTitle("");
-    setRoom(" ");
+    setRoom(null);
     setType(" ");
   };
 
