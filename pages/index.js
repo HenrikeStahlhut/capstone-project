@@ -49,9 +49,6 @@ export default function Homepage() {
     isLoading: plantsLoading,
   } = useSWR("/api/plants", fetcher);
 
-  console.log("rooms", rooms);
-  console.log("plants", plants);
-
   if (error) {
     return (
       <StyledError>

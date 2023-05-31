@@ -1,4 +1,5 @@
 import { getRoom, updateRoom, deleteRoom } from "@/utils/db";
+import { getPlantsByRoomId } from "@/utils/db_plants";
 import mongoose from "mongoose";
 
 export default async function handler(req, res) {
@@ -13,7 +14,9 @@ export default async function handler(req, res) {
       return res.status(404).json({ error: "Room not found" });
     }
 
-    return res.status(200).json(room);
+    const plants = await getPlantsByRoomId(room._id);
+
+    return res.status(200).json({ ...room.toJSON(), plants });
   }
 
   if (req.method === "PUT") {

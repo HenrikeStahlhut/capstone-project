@@ -45,7 +45,7 @@ export default function AllPlantsList() {
                 ></StyledImage>{" "}
                 <StyledPlantDetails>
                   {plant.title} <br />
-                  Room:
+                  Room:{" "}
                   {plant.rooms.length > 0
                     ? plant.rooms[0].title
                     : "No room assigned"}

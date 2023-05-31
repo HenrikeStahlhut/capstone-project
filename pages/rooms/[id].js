@@ -50,7 +50,7 @@ export default function RoomDetailPage() {
         <DeleteButton room={room} />
       </Header>
 
-      <PlantList room={room._id} />
+      <PlantList room={room} />
       <Navigation />
     </>
   );

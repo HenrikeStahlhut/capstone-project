@@ -17,8 +17,6 @@ export default function AllPlants() {
 
   const { data: room, error, isLoading } = useSWR(`/api/rooms`, fetcher);
 
-  console.log("room", room);
-
   // Error handling
 
   if (!room) {
@@ -44,7 +42,7 @@ export default function AllPlants() {
     <>
       <BackButton href="/" />
       <Header>My Plants</Header>
-      <AllPlantsList room={room._id} />
+      <AllPlantsList />
       <Navigation />
     </>
   );
