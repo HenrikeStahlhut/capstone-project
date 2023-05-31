@@ -21,10 +21,7 @@ export default function PlantDetailPage() {
     isLoading,
   } = useSWR(`/api/plants/${id}`, fetcher);
 
-  console.log("plant", plant);
-
   // Error handling
-
   if (!plant) {
     return null;
   }

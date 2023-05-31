@@ -54,8 +54,6 @@ export default function EditPlantModal({ plant }) {
   async function handleEdit(event) {
     event.preventDefault();
 
-    console.log("handle event");
-
     await trigger({ title });
 
     toggleModal();

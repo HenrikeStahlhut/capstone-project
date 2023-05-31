@@ -7,7 +7,6 @@ const { MONGODB_URL } = process.env;
 const plantSchema = new Schema({
   title: String,
   room: { type: mongoose.Types.ObjectId, ref: "Room._id" },
-  // room: { type: mongoose.Types.ObjectId, ref: "Room" },
   type: {
     type: String,
     enum: Object.keys(PlantType),
@@ -19,11 +18,7 @@ const Plant = models.Plant || model("Plant", plantSchema);
 export default Plant;
 
 async function connectDatabase() {
-  // try {
   await mongoose.connect(MONGODB_URL);
-  // } catch (err) {
-  //   console.error(err);
-  // }
 }
 
 async function createPlant(plant) {
