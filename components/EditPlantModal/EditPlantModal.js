@@ -36,10 +36,9 @@ async function sendRequest(url, { arg }) {
 }
 
 export default function EditPlantModal({ plant }) {
-  const { mutate } = useSWRConfig();
   const router = useRouter();
   const { id } = router.query;
-  const { trigger } = useSWRMutation(`/api/plants`, sendRequest);
+  const { trigger } = useSWRMutation(`/api/plants/${id}`, sendRequest);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [title, setTitle] = useState(plant.title);
@@ -55,10 +54,9 @@ export default function EditPlantModal({ plant }) {
   async function handleEdit(event) {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const plantData = Object.fromEntries(formData);
+    console.log("handle event");
 
-    await trigger(plantData);
+    await trigger({ title });
 
     toggleModal();
   }
@@ -82,9 +80,11 @@ export default function EditPlantModal({ plant }) {
               value={title}
               onChange={handleTitleChange}
             />
+
             <StyledAddButton type="submit" onClick={handleEdit}>
               Save edits
             </StyledAddButton>
+
             <StyledCloseModalBtn onClick={toggleModal}>✕</StyledCloseModalBtn>
           </StyledModalContent>
         </StyledModal>

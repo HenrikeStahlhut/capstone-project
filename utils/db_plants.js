@@ -61,15 +61,15 @@ async function getAllPlants() {
 
 async function deletePlant(id) {
   await connectDatabase();
-  const plant = await Plant.findOne({ id });
-  await Plant.deleteOne({ id });
+  const plant = await Plant.findOne({ _id: id });
+  await Plant.deleteOne({ _id: id });
   return plant;
 }
 
 async function updatePlant(id, plant) {
   await connectDatabase();
-  await Plant.updateOne({ id }, plant);
-  const updatedPlant = await Plant.findOne({ id });
+  await Plant.updateOne({ _id: id }, plant);
+  const updatedPlant = await Plant.findOne({ _id: id });
   return updatedPlant;
 }
 

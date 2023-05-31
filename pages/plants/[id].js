@@ -21,6 +21,8 @@ export default function PlantDetailPage() {
     isLoading,
   } = useSWR(`/api/plants/${id}`, fetcher);
 
+  console.log("plant", plant);
+
   // Error handling
 
   if (!plant) {
@@ -48,6 +50,8 @@ export default function PlantDetailPage() {
       <Header>
         {plant.title} <EditPlantModal plant={plant} />
       </Header>
+
+      <p>{plant.room ? plant.room.title : "Kein Raum"}</p>
 
       <Navigation />
     </>

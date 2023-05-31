@@ -1,5 +1,5 @@
 import { getRoom } from "@/utils/db";
-import Plant, { getPlant } from "@/utils/db_plants";
+import Plant, { getPlant, updatePlant } from "@/utils/db_plants";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
@@ -9,15 +9,19 @@ export default async function handler(req, res) {
 
     const plant = await getPlant(req.query.id);
 
+    console.log("plant", plant);
+
     if (!plant) {
       return res.status(404).json({ error: "Plant not found" });
     }
 
     const room = await getRoom(plant.room);
 
-    if (!room) {
-      return res.status(404).json({ error: "Room not found" });
-    }
+    console.log("room", room);
+
+    // if (!room) {
+    //   return res.status(404).json({ error: "Room not found" });
+    // }
 
     return res.status(200).json({ ...plant.toJSON(), room });
   }
@@ -26,7 +30,12 @@ export default async function handler(req, res) {
     const plantData = req.body;
     const id = req.query.id;
 
+    console.log("plantData", plantData);
+    console.log("id", id);
+
     const updatedPlant = await updatePlant(id, plantData);
+    console.log("updatedPlant", updatedPlant);
+
     return res.status(200).json(updatedPlant);
   }
 

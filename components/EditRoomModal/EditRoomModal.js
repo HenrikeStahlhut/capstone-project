@@ -36,10 +36,8 @@ async function sendRequest(url, { arg }) {
 }
 
 export default function EditRoomModal({ room }) {
-  const { mutate } = useSWRConfig();
   const router = useRouter();
   const { id } = router.query;
-
   const { trigger } = useSWRMutation(`/api/rooms/${id}`, sendRequest);
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -56,10 +54,7 @@ export default function EditRoomModal({ room }) {
   async function handleEdit(event) {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const roomData = Object.fromEntries(formData);
-
-    await trigger(roomData);
+    await trigger({ title });
 
     toggleModal();
   }
@@ -72,22 +67,24 @@ export default function EditRoomModal({ room }) {
       {modalOpen && (
         <StyledModal>
           <StyledOverlay onClick={toggleModal}></StyledOverlay>
+
           <StyledModalContent>
             <StyledModalHeadline>Edit Room</StyledModalHeadline>
+            <form>
+              <StyledLabel htmlFor="name">Name</StyledLabel>
+              <StyledInput
+                type="text"
+                id="name"
+                name="title"
+                required
+                value={title}
+                onChange={handleTitleChange}
+              />
 
-            <StyledLabel htmlFor="name">Name</StyledLabel>
-            <StyledInput
-              type="text"
-              id="name"
-              name="title"
-              required
-              value={title}
-              onChange={handleTitleChange}
-            />
-
-            <StyledAddButton type="submit" onClick={handleEdit}>
-              Save edits
-            </StyledAddButton>
+              <StyledAddButton type="submit" onClick={handleEdit}>
+                Save edits
+              </StyledAddButton>
+            </form>
 
             <StyledCloseModalBtn onClick={toggleModal}>✕</StyledCloseModalBtn>
           </StyledModalContent>
