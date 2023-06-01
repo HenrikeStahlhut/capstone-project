@@ -15,6 +15,7 @@ import {
   StyledLoading,
 } from "../RoomList/RoomsList.Styled";
 import { PlantType } from "@/utils/PlantType";
+import StyledLink from "../StyledLink/StyledLink";
 
 export default function AddPlantForm() {
   const { mutate } = useSWRConfig();
