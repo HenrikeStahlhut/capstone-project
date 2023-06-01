@@ -30,7 +30,7 @@ export const StyledModalContent = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
-  background: #f1f1f1;
+  background: var(--background-green);
   padding: 14px 28px;
   border-radius: 3px;
   max-width: 600px;
