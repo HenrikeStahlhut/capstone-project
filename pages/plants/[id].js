@@ -11,9 +11,23 @@ import Header from "@/components/Header/Header";
 import Navigation from "@/components/Navigation/Navigation";
 import EditPlantModal from "@/components/EditPlantModal/EditPlantModal";
 import styled from "styled-components";
+import Image from "next/image";
+import { plantTypeName } from "@/utils/PlantTypeName";
 
 const StyledHeaderContainer = styled.div`
   display: flex;
+`;
+
+const StyledImage = styled(Image)`
+  border-radius: 10px;
+  margin: 0 50px;
+  width: 300px;
+  height: 100%;
+`;
+
+const StyledDetail = styled.p`
+  margin: 20px 50px;
+  font-size: 20px;
 `;
 
 export default function PlantDetailPage() {
@@ -46,16 +60,26 @@ export default function PlantDetailPage() {
     return <StyledLoading>Loading your rooms...</StyledLoading>;
   }
 
+  console.log(plantTypeName(plant));
+
   return (
     <>
       <BackButton href="/plants/all" />
-
       <StyledHeaderContainer>
         <Header>{plant.title}</Header>
         <EditPlantModal plant={plant} />
       </StyledHeaderContainer>
-
-      <p>{plant.room ? plant.room.title : "Kein Raum"}</p>
+      <StyledImage
+        key={plant._id}
+        src={`/plants/${plant.type}.jpeg`}
+        width={90}
+        height={90}
+        alt={plant.title}
+      ></StyledImage>
+      <StyledDetail>
+        Room: {plant.room ? plant.room.title : "No room assigned :("}
+      </StyledDetail>
+      <StyledDetail> Type: {plantTypeName(plant)}</StyledDetail>
 
       <Navigation />
     </>
