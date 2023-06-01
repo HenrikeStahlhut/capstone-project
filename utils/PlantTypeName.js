@@ -54,6 +54,6 @@ export const plantTypeName = (plant) => {
   } else if (plant.type === "CALATHEA") {
     return "Calathea";
   } else {
-    return "Unknown Plant Type";
+    return "Unknown";
   }
 };

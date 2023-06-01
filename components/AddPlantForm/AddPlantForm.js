@@ -15,7 +15,6 @@ import {
   StyledLoading,
 } from "../RoomList/RoomsList.Styled";
 import { PlantType } from "@/utils/PlantType";
-import StyledLink from "../StyledLink/StyledLink";
 
 export default function AddPlantForm() {
   const { mutate } = useSWRConfig();
@@ -98,7 +97,6 @@ export default function AddPlantForm() {
             Select plant type
           </option>
           <option value={PlantType.INVALID}>No plant type</option>
-          <option value={PlantType.MONEY_PLANT}>Money Plant</option>
           <option value={PlantType.PHILODENDRON}>Philodendron</option>
           <option value={PlantType.SPIDER_PLANT}>Spider Plant</option>
           <option value={PlantType.STRING_OF_PERLS}>String of perls</option>

@@ -13,6 +13,8 @@ import EditPlantModal from "@/components/EditPlantModal/EditPlantModal";
 import styled from "styled-components";
 import Image from "next/image";
 import { plantTypeName } from "@/utils/PlantTypeName";
+import { FaCouch } from "react-icons/fa";
+import { RiPlantFill } from "react-icons/ri";
 
 const StyledHeaderContainer = styled.div`
   display: flex;
@@ -21,13 +23,26 @@ const StyledHeaderContainer = styled.div`
 const StyledImage = styled(Image)`
   border-radius: 10px;
   margin: 0 50px;
-  width: 300px;
-  height: 100%;
 `;
 
-const StyledDetail = styled.p`
-  margin: 20px 50px;
-  font-size: 20px;
+const StyledCardsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 8em;
+  height: 8em;
+  background-color: var(--white);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 10px 0 10px;
+`;
+
+const StyledText = styled.p`
+  margin: 10px 0 0 0;
 `;
 
 export default function PlantDetailPage() {
@@ -69,17 +84,32 @@ export default function PlantDetailPage() {
         <Header>{plant.title}</Header>
         <EditPlantModal plant={plant} />
       </StyledHeaderContainer>
+
       <StyledImage
         key={plant._id}
         src={`/plants/${plant.type}.jpeg`}
-        width={90}
-        height={90}
+        width={270}
+        height={270}
         alt={plant.title}
       ></StyledImage>
-      <StyledDetail>
-        Room: {plant.room ? plant.room.title : "No room assigned :("}
-      </StyledDetail>
-      <StyledDetail> Type: {plantTypeName(plant)}</StyledDetail>
+
+      <StyledCardsContainer>
+        <StyledCard>
+          <FaCouch size={40} />
+          <StyledText>
+            Room: <br /> {plant.room ? plant.room.title : "No room assigned"}
+          </StyledText>
+        </StyledCard>
+
+        <StyledCard>
+          {" "}
+          <RiPlantFill size={35} />
+          <StyledText>
+            Type:
+            <br /> {plantTypeName(plant)}
+          </StyledText>
+        </StyledCard>
+      </StyledCardsContainer>
 
       <Navigation />
     </>
