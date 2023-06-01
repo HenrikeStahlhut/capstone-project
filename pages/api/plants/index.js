@@ -10,7 +10,14 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     const { title, room, type } = req.body;
 
-    const plant = await createPlant({ title, room, type });
+    console.log("req.body", req.body);
+
+    const plant = await createPlant({
+      title,
+      // room: "646375c2ca61d7b3c9e64f81",
+      room,
+      type,
+    });
 
     return res.status(201).json(plant);
   }

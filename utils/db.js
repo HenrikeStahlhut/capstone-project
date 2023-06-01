@@ -10,6 +10,7 @@ const roomSchema = new Schema({
     type: String,
     enum: Object.keys(RoomType),
   },
+  plants: [],
 });
 
 const Room = models.Room || model("Room", roomSchema);

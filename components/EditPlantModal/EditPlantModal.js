@@ -1,6 +1,8 @@
-import styled from "styled-components";
-import { useState } from "react";
+import { useSWRConfig } from "swr";
+import { useRouter } from "next/router";
+import useSWRMutation from "swr/mutation";
 import { HiPencilAlt } from "react-icons/hi";
+import { useState } from "react";
 import {
   StyledAddButton,
   StyledCloseModalBtn,
@@ -9,10 +11,8 @@ import {
   StyledModalHeadline,
   StyledOverlay,
 } from "../AddRoomModal/AddRoomModal.Styled";
-import { StyledInput, StyledLabel } from "../AddPlantForm/AddPlantForm.Styled";
-import { useSWRConfig } from "swr";
-import { useRouter } from "next/router";
-import useSWRMutation from "swr/mutation";
+import { StyledInput } from "../AddPlantForm/AddPlantForm.Styled";
+import styled from "styled-components";
 
 const StyledButton = styled.button`
   border: none;
@@ -35,13 +35,13 @@ async function sendRequest(url, { arg }) {
   }
 }
 
-export default function EditRoomModal({ room }) {
+export default function EditPlantModal({ plant }) {
   const router = useRouter();
   const { id } = router.query;
-  const { trigger } = useSWRMutation(`/api/rooms/${id}`, sendRequest);
+  const { trigger } = useSWRMutation(`/api/plants/${id}`, sendRequest);
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [title, setTitle] = useState(room.title);
+  const [title, setTitle] = useState(plant.title);
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
@@ -67,10 +67,9 @@ export default function EditRoomModal({ room }) {
       {modalOpen && (
         <StyledModal>
           <StyledOverlay onClick={toggleModal}></StyledOverlay>
-
           <StyledModalContent>
-            <StyledModalHeadline>Edit Room</StyledModalHeadline>
-            <StyledLabel htmlFor="name">Name</StyledLabel>
+            <StyledModalHeadline>Edit Plant</StyledModalHeadline>
+
             <StyledInput
               type="text"
               id="name"

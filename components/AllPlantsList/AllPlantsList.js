@@ -12,8 +12,9 @@ import {
   StyledLoading,
 } from "../RoomList/RoomsList.Styled";
 import { StyledImage } from "@/pages";
+import StyledLink from "../StyledLink/StyledLink";
 
-export default function AllPlantsList({ room }) {
+export default function AllPlantsList() {
   const { data: plants, error, isLoading } = useSWR(`/api/plants`, fetcher);
 
   if (error) {
@@ -31,24 +32,26 @@ export default function AllPlantsList({ room }) {
   return (
     <>
       <StyledList>
-        {plants.map((plant) => (
+        {plants.map((plant, index) => (
           <StyledCard key={plant._id}>
-            <StyledListItem key={plant._id}>
-              <StyledImage
-                key={plant._id}
-                src={`/plants/${plant.type}.jpeg`}
-                width={90}
-                height={90}
-                alt={plant.title}
-              ></StyledImage>{" "}
-              <StyledPlantDetails>
-                {plant.title} <br />
-                Room:
-                {plant.rooms.length > 0
-                  ? plant.rooms[0].title
-                  : "No room assigned"}
-              </StyledPlantDetails>
-            </StyledListItem>
+            <StyledLink key={index} href={`/plants/${plant._id}`}>
+              <StyledListItem key={plant._id}>
+                <StyledImage
+                  key={plant._id}
+                  src={`/plants/${plant.type}.jpeg`}
+                  width={90}
+                  height={90}
+                  alt={plant.title}
+                ></StyledImage>{" "}
+                <StyledPlantDetails>
+                  {plant.title} <br />
+                  Room:{" "}
+                  {plant.rooms.length > 0
+                    ? plant.rooms[0].title
+                    : "No room assigned"}
+                </StyledPlantDetails>
+              </StyledListItem>
+            </StyledLink>
           </StyledCard>
         ))}
       </StyledList>

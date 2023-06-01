@@ -29,8 +29,14 @@ async function createPlant(plant) {
 
 async function getPlant(id) {
   await connectDatabase();
-  const plant = await Plant.findOne({ id });
+  const plant = await Plant.findOne({ _id: id });
   return plant;
+}
+
+async function getPlantsByRoomId(roomId) {
+  await connectDatabase();
+  const plants = await Plant.find({ room: roomId });
+  return plants;
 }
 
 async function getAllPlants() {
@@ -50,16 +56,24 @@ async function getAllPlants() {
 
 async function deletePlant(id) {
   await connectDatabase();
-  const plant = await Plant.findOne({ id });
-  await Plant.deleteOne({ id });
+  const plant = await Plant.findOne({ _id: id });
+  await Plant.deleteOne({ _id: id });
   return plant;
 }
 
 async function updatePlant(id, plant) {
   await connectDatabase();
-  await Plant.updateOne({ id }, plant);
-  const updatedPlant = await Plant.findOne({ id });
+  await Plant.updateOne({ _id: id }, plant);
+  const updatedPlant = await Plant.findOne({ _id: id });
   return updatedPlant;
 }
 
-export { createPlant, getPlant, getAllPlants, deletePlant, updatePlant, Plant };
+export {
+  createPlant,
+  getPlant,
+  getPlantsByRoomId,
+  getAllPlants,
+  deletePlant,
+  updatePlant,
+  Plant,
+};
