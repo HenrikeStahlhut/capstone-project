@@ -1,7 +1,7 @@
 <h1>About this project </h3><img src="https://img.shields.io/badge/status-in%20progress-green">
 
 <p>
-  This is my <strong>final project</strong> for the web development bootcamp i did with <a href="https://www.neuefische.de/en">neuefische</a>. This intensive coding bootcamp is a full-time program, totaling 540 hours in 12 weeks. During this time, I gained skills such as React, CSS, JavaScript and many more. 
+  This is my <strong>final project</strong> for the web development bootcamp i did with <a href="https://www.neuefische.de/en">neuefische</a>. This intensive coding bootcamp is a full-time program, totaling 540 hours in 12 weeks. During this time, I gained fundamental coding skills in Javascript, React and Next.js and many more. This culmulated in the development of this web app as the final project.
 </p>
 
 <br/>
