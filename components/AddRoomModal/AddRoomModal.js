@@ -50,6 +50,8 @@ export default function AddRoomModal() {
       mutate("/api/rooms");
     });
     toggleModal();
+    setTitle(" ");
+    setType(null);
   };
 
   return (
