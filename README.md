@@ -17,7 +17,9 @@ PlantPal will be your trusted companion every step of the way.
 ### Screenshots 
 
 ### Demo
-<a href="https://capstone-project-peach-omega.vercel.app/"><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"></a>
+You can find the hosted version on vercel: [Demo](https://capstone-project-peach-omega.vercel.app/) <br/>
+<br/>
+**IMPORTANT NOTE: currently optimized for mobile!**
 
 ### Built with
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
