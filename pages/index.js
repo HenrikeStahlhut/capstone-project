@@ -1,5 +1,4 @@
 import Navigation from "@/components/Navigation/Navigation";
-import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
 import styled from "styled-components";
 import { StyledList } from "@/components/PlantList/PlantList.Styled";

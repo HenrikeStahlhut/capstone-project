@@ -93,7 +93,7 @@ export default function AddRoomModal() {
               <option value={RoomType.BATHROOM}>Bathroom</option>
             </StyledSelect>
             <StyledAddButton type="submit" onClick={handleAddRoom}>
-              Add!
+              Add
             </StyledAddButton>
 
             <StyledCloseModalBtn onClick={toggleModal}>✕</StyledCloseModalBtn>
