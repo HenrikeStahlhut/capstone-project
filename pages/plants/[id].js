@@ -75,8 +75,6 @@ export default function PlantDetailPage() {
     return <StyledLoading>Loading your rooms...</StyledLoading>;
   }
 
-  console.log(plantTypeName(plant));
-
   return (
     <>
       <BackButton href="/plants/all" />

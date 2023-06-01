@@ -1,59 +1,87 @@
 export const plantTypeName = (plant) => {
-  if (plant.type === "MONEY_PLANT") {
-    return "Money Plant";
-  } else if (plant.type === "PHILODENDRON") {
-    return "Philodendron";
-  } else if (plant.type === "SPIDER_PLANT") {
-    return "Spider Plant";
-  } else if (plant.type === "STRING_OF_PERLS") {
-    return "String of Perls";
-  } else if (plant.type === "STAGHORN_FERN") {
-    return "Staghorn Fern";
-  } else if (plant.type === "ORCHID") {
-    return "Orchid";
-  } else if (plant.type === "PEACE_LILY") {
-    return "Peace Lily";
-  } else if (plant.type === "MONSTERA_DELICIOSA") {
-    return "Monstera Deliciosa";
-  } else if (plant.type === "SNAKE_PLANT") {
-    return "Snake Plant";
-  } else if (plant.type === "LILY_OF_THE_VALLEY") {
-    return "Lily of the Valley";
-  } else if (plant.type === "JADE_PLANT") {
-    return "Jade Plant";
-  } else if (plant.type === "STING_OF_HEARTS") {
-    return "Sting of Hearts";
-  } else if (plant.type === "RUBBER_PLANT") {
-    return "Rubber Plant";
-  } else if (plant.type === "ASPARAGUS_FERN") {
-    return "Asparagus Fern";
-  } else if (plant.type === "CALATHEA_ORNATA") {
-    return "Calathea Ornata";
-  } else if (plant.type === "YUCCA_PLANT") {
-    return "Yucca Plant";
-  } else if (plant.type === "ENGLISH_IVY") {
-    return "English Ivy";
-  } else if (plant.type === "DRACAENA_MARGINATA") {
-    return "Dracaena Marginata";
-  } else if (plant.type === "PEPEROMIA") {
-    return "Peperomia";
-  } else if (plant.type === "ZZ_PLANT") {
-    return "ZZ Plant";
-  } else if (plant.type === "ARROWHEAD_VINE") {
-    return "Arrowhead Vine";
-  } else if (plant.type === "HOYA") {
-    return "Hoya";
-  } else if (plant.type === "RUBBER_TREE") {
-    return "Rubber Tree";
-  } else if (plant.type === "CAST_IRON_PLANT") {
-    return "Cast Iron Plant";
-  } else if (plant.type === "CORN_PLANT") {
-    return "Corn Plant";
-  } else if (plant.type === "PONYTAIL_PALM") {
-    return "Ponytail Palm";
-  } else if (plant.type === "CALATHEA") {
-    return "Calathea";
-  } else {
-    return "Unknown";
+  switch (plant.type) {
+    case "MONEY_PLANT":
+      return "Money Plant";
+      break;
+    case "PHILODENDRON":
+      return "Philodendron";
+      break;
+    case "SPIDER_PLANT":
+      return "Spider Plant";
+      break;
+    case "STRING_OF_PERLS":
+      return "String of Perls";
+      break;
+    case "STAGHORN_FERN":
+      return "Staghorn Fern";
+      break;
+    case "ORCHID":
+      return "Orchid";
+      break;
+    case "PEACE_LILY":
+      return "Peace Lily";
+      break;
+    case "MONSTERA_DELICIOSA":
+      return "Monstera Deliciosa";
+      break;
+    case "SNAKE_PLANT":
+      return "Snake Plant";
+      break;
+    case "LILY_OF_THE_VALLEY":
+      return "Lily of the Valley";
+      break;
+    case "JADE_PLANT":
+      return "Jade Plant";
+      break;
+    case "STING_OF_HEARTS":
+      return "Sting of Hearts";
+      break;
+    case "RUBBER_PLANT":
+      return "Rubber Plant";
+      break;
+    case "ASPARAGUS_FERN":
+      return "Asparagus Fern";
+      break;
+    case "CALATHEA_ORNATA":
+      return "Calathea Ornata";
+      break;
+    case "YUCCA_PLANT":
+      return "Yucca Plant";
+      break;
+    case "ENGLISH_IVY":
+      return "English Ivy";
+      break;
+    case "DRACAENA_MARGINATA":
+      return "Dracaena Marginata";
+      break;
+    case "PEPEROMIA":
+      return "Peperomia";
+      break;
+    case "ZZ_PLANT":
+      return "ZZ Plant";
+      break;
+    case "ARROWHEAD_VINE":
+      return "Arrowhead Vine";
+      break;
+    case "HOYA":
+      return "Hoya";
+      break;
+    case "RUBBER_TREE":
+      return "Rubber Tree";
+      break;
+    case "CAST_IRON_PLANT":
+      return "Cast Iron Plant";
+      break;
+    case "CORN_PLANT":
+      return "Corn Plant";
+      break;
+    case "PONYTAIL_PALM":
+      return "Ponytail Palm";
+      break;
+    case "CALATHEA":
+      return "Calathea";
+      break;
+    default:
+      return "Unknown";
   }
 };
