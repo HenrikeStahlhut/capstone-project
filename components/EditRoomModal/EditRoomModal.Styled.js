@@ -26,8 +26,6 @@ export const StyledOverlay = styled.div`
 `;
 export const StyledModalContent = styled.div`
   position: absolute;
-  display: flex;
-  flex-direction: column;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -60,9 +58,10 @@ export const StyledAddButton = styled.button`
   border-radius: 20px;
   padding: 7px;
   background-color: var(--dark-green);
+  margin-top: 20px;
 `;
 
 export const StyledLabel = styled.label`
-  margin-bottom: 10px;
+  margin: 20px 10px 10px 0px;
   font-size: 15px;
 `;

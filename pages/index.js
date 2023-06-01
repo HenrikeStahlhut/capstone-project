@@ -1,5 +1,4 @@
 import Navigation from "@/components/Navigation/Navigation";
-import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
 import styled from "styled-components";
 import { StyledList } from "@/components/PlantList/PlantList.Styled";
@@ -12,7 +11,7 @@ import {
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import Greeting from "@/components/Greeting/Greeting";
-import { PlantType } from "@/components/AddPlantForm/AddPlantForm";
+import StyledLink from "@/components/StyledLink/StyledLink";
 
 // StyledComponents
 
@@ -83,10 +82,13 @@ export default function Homepage() {
         <CgProfile size={30} />
       </StyledHeader>
       <StyledList>
-        <StyledCardHeadline>My Rooms</StyledCardHeadline>
-        <Link href={"/rooms/all"}>
-          <StyledCard>
-            {rooms.map((room) => (
+        <StyledLink href={"/rooms/all"}>
+          <StyledCardHeadline>My Rooms</StyledCardHeadline>
+        </StyledLink>
+
+        <StyledCard>
+          {rooms.map((room, index) => (
+            <StyledLink key={index} href={`/rooms/${room._id}`}>
               <StyledImage
                 key={room._id}
                 src={`/rooms/${room.type}.png`}
@@ -94,14 +96,17 @@ export default function Homepage() {
                 height={90}
                 alt={room.title}
               ></StyledImage>
-            ))}
-          </StyledCard>
-        </Link>
+            </StyledLink>
+          ))}
+        </StyledCard>
 
-        <StyledCardHeadline>My Plants</StyledCardHeadline>
-        <Link href={"/plants/all"}>
-          <StyledCard>
-            {plants.map((plant) => (
+        <StyledLink href={"/plants/all"}>
+          <StyledCardHeadline>My Plants</StyledCardHeadline>
+        </StyledLink>
+
+        <StyledCard>
+          {plants.map((plant, index) => (
+            <StyledLink href={`/plants/${plant._id}`} key={index}>
               <StyledImage
                 key={plant._id}
                 src={`/plants/${plant.type}.jpeg`}
@@ -109,9 +114,9 @@ export default function Homepage() {
                 height={90}
                 alt={plant.title}
               ></StyledImage>
-            ))}
-          </StyledCard>
-        </Link>
+            </StyledLink>
+          ))}
+        </StyledCard>
       </StyledList>
       <Navigation />
     </>

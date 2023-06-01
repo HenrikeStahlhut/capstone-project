@@ -10,6 +10,11 @@ import BackButton from "@/components/BackButton/BackButton";
 import Header from "@/components/Header/Header";
 import Navigation from "@/components/Navigation/Navigation";
 import EditPlantModal from "@/components/EditPlantModal/EditPlantModal";
+import styled from "styled-components";
+
+const StyledHeaderContainer = styled.div`
+  display: flex;
+`;
 
 export default function PlantDetailPage() {
   const router = useRouter();
@@ -44,9 +49,11 @@ export default function PlantDetailPage() {
   return (
     <>
       <BackButton href="/plants/all" />
-      <Header>
-        {plant.title} <EditPlantModal plant={plant} />
-      </Header>
+
+      <StyledHeaderContainer>
+        <Header>{plant.title}</Header>
+        <EditPlantModal plant={plant} />
+      </StyledHeaderContainer>
 
       <p>{plant.room ? plant.room.title : "Kein Raum"}</p>
 

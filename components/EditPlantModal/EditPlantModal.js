@@ -10,7 +10,8 @@ import {
   StyledModalContent,
   StyledModalHeadline,
   StyledOverlay,
-} from "../AddRoomModal/AddRoomModal.Styled";
+  StyledLabel,
+} from "../EditRoomModal/EditRoomModal.Styled";
 import { StyledInput } from "../AddPlantForm/AddPlantForm.Styled";
 import styled from "styled-components";
 
@@ -18,6 +19,10 @@ const StyledButton = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
+`;
+
+const StyledHeaderContainer = styled.div`
+  display: flex;
 `;
 
 async function sendRequest(url, { arg }) {
@@ -70,6 +75,7 @@ export default function EditPlantModal({ plant }) {
           <StyledModalContent>
             <StyledModalHeadline>Edit Plant</StyledModalHeadline>
 
+            <StyledLabel htmlFor="name">Name</StyledLabel>
             <StyledInput
               type="text"
               id="name"

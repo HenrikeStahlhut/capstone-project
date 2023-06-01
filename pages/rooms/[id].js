@@ -12,9 +12,13 @@ import {
 import PlantList from "@/components/PlantList/PlantList";
 import EditRoomModal from "@/components/EditRoomModal/EditRoomModal";
 import DeleteButton from "@/components/DeleteButton/DeleteButton";
+import styled from "styled-components";
+
+const StyledHeaderContainer = styled.div`
+  display: flex;
+`;
 
 // Detail page of room
-
 export default function RoomDetailPage() {
   const router = useRouter();
   const { id } = router.query;
@@ -45,10 +49,12 @@ export default function RoomDetailPage() {
   return (
     <>
       <BackButton href="/rooms/all" />
-      <Header>
-        {room.title} <EditRoomModal room={room} />
+
+      <StyledHeaderContainer>
+        <Header>{room.title}</Header>
+        <EditRoomModal room={room} />
         <DeleteButton room={room} />
-      </Header>
+      </StyledHeaderContainer>
 
       <PlantList room={room} />
       <Navigation />

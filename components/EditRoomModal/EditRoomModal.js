@@ -8,9 +8,9 @@ import {
   StyledModalContent,
   StyledModalHeadline,
   StyledOverlay,
-} from "../AddRoomModal/AddRoomModal.Styled";
-import { StyledInput, StyledLabel } from "../AddPlantForm/AddPlantForm.Styled";
-import { useSWRConfig } from "swr";
+  StyledLabel,
+} from "../EditRoomModal/EditRoomModal.Styled";
+import { StyledInput } from "../AddPlantForm/AddPlantForm.Styled";
 import { useRouter } from "next/router";
 import useSWRMutation from "swr/mutation";
 

@@ -6,14 +6,11 @@ import {
   StyledModalHeadline,
   StyledOpenBtn,
   StyledOverlay,
+  StyledLabel,
 } from "@/components/AddRoomModal/AddRoomModal.Styled";
 import { useState } from "react";
 import { useSWRConfig } from "swr";
-import {
-  StyledInput,
-  StyledLabel,
-  StyledSelect,
-} from "../AddPlantForm/AddPlantForm.Styled";
+import { StyledInput, StyledSelect } from "../AddPlantForm/AddPlantForm.Styled";
 import { RoomType } from "../RoomTile/RoomTile";
 
 // Modal Component
@@ -50,6 +47,8 @@ export default function AddRoomModal() {
       mutate("/api/rooms");
     });
     toggleModal();
+    setTitle(" ");
+    setType(null);
   };
 
   return (
@@ -71,7 +70,8 @@ export default function AddRoomModal() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             ></StyledInput>
-            <StyledLabel htmlFor="room">Choose Room</StyledLabel>
+            <br />
+            <StyledLabel htmlFor="room">Room</StyledLabel>
             <StyledSelect
               id="room"
               name="room"
@@ -90,8 +90,9 @@ export default function AddRoomModal() {
               <option value={RoomType.OFFICE}>Office</option>
               <option value={RoomType.BATHROOM}>Bathroom</option>
             </StyledSelect>
+            <br />
             <StyledAddButton type="submit" onClick={handleAddRoom}>
-              Add!
+              Add
             </StyledAddButton>
 
             <StyledCloseModalBtn onClick={toggleModal}>✕</StyledCloseModalBtn>
