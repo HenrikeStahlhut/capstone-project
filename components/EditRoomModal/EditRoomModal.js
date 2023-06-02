@@ -78,6 +78,7 @@ export default function EditRoomModal({ room }) {
               required
               value={title}
               onChange={handleTitleChange}
+              autoComplete="off"
             />
 
             <StyledAddButton type="submit" onClick={handleEdit}>

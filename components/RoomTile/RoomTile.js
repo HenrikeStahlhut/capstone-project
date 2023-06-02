@@ -19,6 +19,7 @@ export default function RoomTile({ title, type }) {
       <StyledImageContainer>
         <Image
           src={`/rooms/${type}.png`}
+          key={`/rooms/${type}.png`}
           width={128}
           height={128}
           alt={title}

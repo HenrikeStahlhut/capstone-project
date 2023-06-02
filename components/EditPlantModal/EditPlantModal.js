@@ -83,6 +83,7 @@ export default function EditPlantModal({ plant }) {
               required
               value={title}
               onChange={handleTitleChange}
+              autoComplete="off"
             />
 
             <StyledAddButton type="submit" onClick={handleEdit}>

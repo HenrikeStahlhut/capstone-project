@@ -73,7 +73,7 @@ export default function AddPlantForm() {
 
   return (
     <>
-      <StyledForm onSubmit={handleAddPlant}>
+      <StyledForm onSubmit={handleAddPlant} autoComplete="off">
         {/* Plant Name */}
         <StyledLabel htmlFor="plant-name">Give your plant a name</StyledLabel>
         <StyledInput
