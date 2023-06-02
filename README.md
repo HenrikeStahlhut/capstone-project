@@ -14,11 +14,10 @@ PlantPal will be your trusted companion every step of the way.
 
 
 
-### Screenshots 
+## Screenshots 
 
-### Demo
+## Demo
 You can find the hosted version on vercel: [Demo](https://capstone-project-peach-omega.vercel.app/) <br/>
-<br/>
 **IMPORTANT NOTE: currently optimized for mobile!**
 
 ### Built with
