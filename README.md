@@ -11,23 +11,41 @@ Transform the way you nurture and care for your beloved houseplants with PlantPa
 manage, and grow your indoor plants. Whether you're a seasoned plant enthusiast or just starting your green journey, 
 PlantPal will be your trusted companion every step of the way.
 
-
-## Screenshots 
 ![Screenshots](https://github.com/HenrikeStahlhut/capstone-project/assets/126799897/5dc1e784-45b2-47e8-ac1e-443110359a85)
 
-## Demo
-You can find the hosted version on vercel: [Demo](https://capstone-project-peach-omega.vercel.app/) <br/>
-*IMPORTANT NOTE: currently optimized for mobile!*
-
-### Built with
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
-![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+## 🌱 Demo
+[Try PlantPal on Vercel](https://capstone-project-peach-omega.vercel.app/) <br/>
+Important: The app is created for mobile view. 
 
 <br/>
 
-### Find me here: 
-<a href="https://www.linkedin.com/in/henrike-stahlhut-389238249/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+## Planned Features
+Since the project is still in progress, here are some features I plan to implement in the near future:
+- additional information for every plant, like  info about, watering soil, light conditions etc. 
+- watering and repotting schedules with a todo plan, so every plant gets the care it needs
+- reminders for your todos
+
+<br/>
+
+## Built with
+[![Built with](https://skillicons.dev/icons?i=react,nextjs,styledcomponents,mongodb,js)](https://skillicons.dev)
+
+<br/>
+
+## Find me here: 
+<a href="https://www.linkedin.com/in/henrike-stahlhut-389238249/">[![LinkedIN](https://skillicons.dev/icons?i=linkedin)](https://skillicons.dev)</a>
+
+<br/>
+
+##  Local development
+To run project commands locally, you need to install the dependencies using npm i first.
+
+You can then use the following commands:<br/>
+- `npm run dev` to start the development server
+- `npm run build` to create a production build
+- `npm run` start to start the production build
+<br/>
+
+> 💡 This project requires a bundler. You can use npm run dev to start the development server. You can then view the project in the browser at http://localhost:3000. The Live Preview Extension for Visual Studio Code will not work for this project.
+
 
