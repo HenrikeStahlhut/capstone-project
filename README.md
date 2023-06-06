@@ -33,7 +33,7 @@ Since the project is still in progress, here are some features I plan to impleme
 <br/>
 
 ## Find me here: 
-<a href="https://www.linkedin.com/in/henrike-stahlhut-389238249/">[![LinkedIN](https://skillicons.dev/icons?i=linkedin)](https://skillicons.dev)</a>
+<a href="https://www.linkedin.com/in/henrike-stahlhut-389238249/">![LinkedIN](https://skillicons.dev/icons?i=linkedin)</a>
 
 <br/>
 
