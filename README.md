@@ -21,7 +21,7 @@ Important: The app is created for mobile view.
 
 ## Planned Features
 Since the project is still in progress, here are some features I plan to implement in the near future:
-- additional information for every plant, like  info about, watering soil, light conditions etc. 
+- additional information for every plant, like  info about, watering, soil, light conditions etc. 
 - watering and repotting schedules with a todo plan, so every plant gets the care it needs
 - reminders for your todos
 
